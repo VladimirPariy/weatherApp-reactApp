@@ -1,0 +1,23 @@
+.dateCard {
+  margin: 20px 50px;
+  width: 300px;
+  height: 150px;
+  color: #fff;
+  border-radius: 7px;
+  padding: 25px 40px;
+  background: hsla(0,0%,100%,.4);
+  text-align: end;
+
+  .time {
+    font-size: 50px;
+  }
+
+  .date {
+    font-size: 20px;
+    margin: 15px 0 0;
+
+    .day, .dayNum, .month, .year {
+      padding: 0 0 0 5px;
+    }
+  }
+}

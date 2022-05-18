@@ -1,0 +1,23 @@
+.container{
+  @apply flex flex-col items-center p-7 w-full h-full;
+  .image{
+    @apply w-36;
+  }
+  .text {
+    @apply text-center flex-grow pt-10;
+
+    :first-child {
+      @apply text-2xl pb-12;
+
+      span {
+        @apply text-2xl text-amber-300 font-bold;
+      }
+    }
+
+    :last-child {
+      @apply text-base font-normal;
+    }
+  }
+}
+
+
