@@ -7,12 +7,7 @@ const WeatherPage = () => {
 
     const [allWeather, setAllWeather] = useState(() => isFetchingWeather())
 
-    function isFetchingWeather(string = 'Kyiv') {
-        axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${string}&appid=50cb39ad20e8cdadfa2c8ce62827d3fa`)
-            .then((response) => {
-                setAllWeather(response.data)
-            })
-    }
+
 
     function getCelFromKel(temp) {
         return Math.round(+temp - 273, 15)

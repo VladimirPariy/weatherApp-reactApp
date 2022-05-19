@@ -1,6 +1,13 @@
-.ul{
+.list {
   @apply flex  justify-center;
-  li{
+  .item {
     @apply p-5 text-2xl;
+    .active {
+      @apply text-amber-300;
+    }
   }
+
 }
+
+
+

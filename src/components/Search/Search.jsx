@@ -1,5 +1,6 @@
-import React, { useState} from 'react';
+import React, {useState} from 'react';
 import style from "./Search.module.scss";
+import {NavLink} from "react-router-dom";
 
 const Search = () => {
     const [search, setSearch] = useState('')
@@ -9,12 +10,14 @@ const Search = () => {
         <div className={style.search}>
             <input type="text"
                    placeholder="Search city"
-                   onChange={(e)=> {
+                   onChange={(e) => {
                        setSearch(e.target.value.toLowerCase())
                    }}
             />
             <button>
-                get started
+                <NavLink to='today'>
+                    get started
+                </NavLink>
             </button>
         </div>
     );
