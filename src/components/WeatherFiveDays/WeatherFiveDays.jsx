@@ -1,9 +1,8 @@
 import React from 'react';
-import {useContext} from "react";
-import {WeatherContext} from "../../services/Fetching/Fetching";
+import {useWeather} from "../../services/Fetching/Fetching";
 
 const WeatherFiveDays = () => {
-    const {weatherFiveDays} = useContext(WeatherContext)
+    const {weatherFiveDays} = useWeather()
     console.log(weatherFiveDays)
     return (
         <div>

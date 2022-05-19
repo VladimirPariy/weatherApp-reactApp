@@ -1,6 +1,7 @@
 import React from 'react';
 import style from "./Nav.module.scss"
 import {NavLink, Outlet} from "react-router-dom";
+import Search from "../../components/Search/Search";
 
 const Nav = () => {
     const getClass = ({isActive}) => isActive ? style.active : ""
@@ -19,6 +20,7 @@ const Nav = () => {
                     </NavLink>
                 </li>
             </ul>
+            <Search/>
             <Outlet/>
         </nav>
     );
