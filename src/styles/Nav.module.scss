@@ -3,7 +3,7 @@ nav{
   .list {
     @apply flex  justify-center;
     .item {
-      @apply p-5 text-2xl;
+      @apply p-5 text-xl;
       .active {
         @apply text-amber-300;
       }

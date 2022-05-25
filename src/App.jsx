@@ -6,7 +6,10 @@ const App = () => {
 
     return (
         <div className={style.wrapper}>
-            <AppRouter/>
+            <div className={style.container}>
+                <AppRouter/>
+            </div>
+
         </div>
     )
 }

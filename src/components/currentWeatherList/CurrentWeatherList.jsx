@@ -1,4 +1,14 @@
 import React from 'react';
+import {
+    normalizationTemp,
+    normalizationVisibility,
+    sunTime,
+    windDirection
+} from "../../services/fetching/normalizationIndicators";
+import style from "./../../styles/CurrentWeatherList.module.scss"
+import {IoIosMoon, IoIosSunny} from "react-icons/io";
+import {MdOutlineFmdGood} from "react-icons/md";
+
 
 const CurrentWeatherList = (props) => {
 
@@ -12,20 +22,44 @@ const CurrentWeatherList = (props) => {
     } = props
     const weatherIcon = `http://openweathermap.org/img/wn/${icon}@2x.png`
 
+    const temperature = normalizationTemp(temp)
+
+    const sunriseTime = sunTime(sunrise)
+    const sunsetTime = sunTime(sunset)
+
+    const visibilityDistance = normalizationVisibility(visibility)
+
+    const windDir = windDirection(deg)
+
     return (
-        <div>
-            <div>{name}, {country}</div>
-            <div><img src={weatherIcon} alt="icon"/></div>
-            <div>{temp} &deg; C</div>
-            <div>{main}</div>
-            <div>{sunrise}</div>
-            <div>{sunset}</div>
-            <ul>
+        <div className={style.wrapper}>
+            <div className={style.city}><MdOutlineFmdGood/>{name}, <span className={style.country}>{country}</span></div>
+            <div className={style.weatherBlock}>
+                <div className={style.iconWeather}>
+                    <img src={weatherIcon} alt="icon"/>
+                    <span>{main}</span>
+                </div>
+                <div className={style.temp}>
+                    {temperature}
+                    <span className={style.cel}>&deg;</span>
+                </div>
+            </div>
+            <div className={style.sun}>
+                <div className={style.sunrise}>
+                    <span>{sunriseTime}</span>
+                    <IoIosSunny/>
+                </div>
+                <div className={style.sunset}>
+                    <IoIosMoon />
+                    <span>{sunsetTime}</span>
+                </div>
+            </div>
+            <ul className={style.weatherList}>
                 <li>Wind speed: {speed} m/s</li>
-                <li>Wind direction: {deg}</li>
+                <li>Wind direction: {windDir}</li>
                 <li>Humidity: {humidity}%</li>
                 <li>Pressure: {pressure} hPa</li>
-                <li>Visibility: {visibility} m</li>
+                <li>Visibility: {visibilityDistance}</li>
             </ul>
         </div>
     );
