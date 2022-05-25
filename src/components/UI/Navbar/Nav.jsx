@@ -1,14 +1,19 @@
 import React from 'react';
-import style from "./Nav.module.scss"
+import style from "../../../styles/Nav.module.scss"
 import {NavLink, Outlet} from "react-router-dom";
-import Search from "../../components/Search/Search";
+import Search from "../Search/Search";
 
-const Nav = () => {
+const Nav = ({getCity}) => {
     const getClass = ({isActive}) => isActive ? style.active : ""
 
     return (
         <nav>
             <ul className={style.list}>
+                <li className={style.item}>
+                    <NavLink to="current" className={getClass}>
+                        Now
+                    </NavLink>
+                </li>
                 <li className={style.item}>
                     <NavLink to="today" className={getClass}>
                         Today
@@ -20,7 +25,7 @@ const Nav = () => {
                     </NavLink>
                 </li>
             </ul>
-            <Search/>
+            <Search getCity={getCity}/>
             <Outlet/>
         </nav>
     );

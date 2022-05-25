@@ -1,0 +1,18 @@
+nav{
+  @apply flex items-center flex-col p-5 w-full h-full;
+  .list {
+    @apply flex  justify-center;
+    .item {
+      @apply p-5 text-2xl;
+      .active {
+        @apply text-amber-300;
+      }
+    }
+
+  }
+}
+
+
+
+
+
