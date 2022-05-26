@@ -2,7 +2,7 @@ import React, {useEffect} from 'react';
 import style from '../../styles/WeatherNow.module.scss'
 import CurrentWeatherList from '../../components/currentWeatherList/CurrentWeatherList';
 import {useState} from "react";
-import {fetchingWeather} from "../../services/fetching/fetchingCurrentWeather";
+import {fetchingWeather} from "../../services/fetching/fetchingWeather";
 
 const CurrentWeather = ({currentCity}) => {
 

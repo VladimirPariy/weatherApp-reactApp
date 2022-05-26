@@ -6,6 +6,8 @@ const WeatherPage = ({getCity}) => {
     return (
         <div>
             <Nav getCity={getCity}/>
+
+
         </div>
     );
 };

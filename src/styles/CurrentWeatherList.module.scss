@@ -33,20 +33,23 @@
   }
 
   .sun {
-    @apply flex justify-between w-full my-10;
+    @apply flex justify-between w-full my-10 relative;
+    img{
+      @apply absolute -top-28 left-2 w-72;
+    }
     .sunrise {
-      @apply flex flex-col ml-10;
+      @apply flex flex-col ml-10 z-10;
       span {
         @apply pb-3;
       }
       svg{
-        @apply m-auto text-2xl text-amber-400;
+        @apply m-auto text-2xl text-amber-400 ;
       }
 
     }
 
     .sunset {
-      @apply flex flex-col mr-10;
+      @apply flex flex-col mr-10 z-10;
       svg{
         @apply m-auto text-2xl text-cyan-200;
       }

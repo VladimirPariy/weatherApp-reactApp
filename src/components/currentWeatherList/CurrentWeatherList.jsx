@@ -4,11 +4,11 @@ import {
     normalizationVisibility,
     sunTime,
     windDirection
-} from "../../services/fetching/normalizationIndicators";
+} from "../../services/normalizationIndicators/normalizationIndicators";
 import style from "./../../styles/CurrentWeatherList.module.scss"
 import {IoIosMoon, IoIosSunny} from "react-icons/io";
 import {MdOutlineFmdGood} from "react-icons/md";
-
+import Untitled from "./../../Assets/Icons/Untitled.svg"
 
 const CurrentWeatherList = (props) => {
 
@@ -49,6 +49,7 @@ const CurrentWeatherList = (props) => {
                     <span>{sunriseTime}</span>
                     <IoIosSunny/>
                 </div>
+                <img src={Untitled} alt=""/>
                 <div className={style.sunset}>
                     <IoIosMoon />
                     <span>{sunsetTime}</span>

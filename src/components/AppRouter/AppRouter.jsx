@@ -19,8 +19,7 @@ const AppRouter = () => {
 
     return (
         <Routes>
-            <Route path="/" element={<WelcomeWindow getCity={getCity}/>}/>
-            <Route path="home" element={<WeatherPage getCity={getCity}/>}>
+            <Route path="/" element={<WeatherPage getCity={getCity}/>}>
                 <Route path="current" element={<CurrentWeather  currentCity={currentCity} />}/>
                 <Route path="today" element={<WeatherToday currentCity={currentCity}/>}/>
                 <Route path="fivedays" element={<WeatherForFiveDays currentCity={currentCity}/>}/>
