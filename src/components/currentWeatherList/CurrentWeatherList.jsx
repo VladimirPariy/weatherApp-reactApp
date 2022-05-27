@@ -1,9 +1,7 @@
 import React from 'react';
 import {
-    normalizationTemp,
-    normalizationVisibility,
-    sunTime,
-    windDirection
+    descriptionReplace,
+    normalizationVisibility, roundNumber, sunTime, windDirection
 } from "../../services/normalizationIndicators/normalizationIndicators";
 import style from "./../../styles/CurrentWeatherList.module.scss"
 import {IoIosMoon, IoIosSunny} from "react-icons/io";
@@ -18,26 +16,24 @@ const CurrentWeatherList = (props) => {
         sys: {country, sunrise, sunset},
         main: {humidity, pressure, temp},
         wind: {speed, deg},
-        weather: [{icon, main}]
+        weather: [{icon, description}]
     } = props
-    const weatherIcon = `http://openweathermap.org/img/wn/${icon}@2x.png`
 
-    const temperature = normalizationTemp(temp)
-
-    const sunriseTime = sunTime(sunrise)
-    const sunsetTime = sunTime(sunset)
-
-    const visibilityDistance = normalizationVisibility(visibility)
-
-    const windDir = windDirection(deg)
+    const weatherIcon = `http://openweathermap.org/img/wn/${icon}@2x.png`,
+        temperature = roundNumber(temp),
+        sunriseTime = sunTime(sunrise), sunsetTime = sunTime(sunset),
+        visibilityDistance = normalizationVisibility(visibility),
+        des = descriptionReplace(description),
+        windDir = windDirection(deg);
 
     return (
         <div className={style.wrapper}>
-            <div className={style.city}><MdOutlineFmdGood/>{name}, <span className={style.country}>{country}</span></div>
+            <div className={style.city}><MdOutlineFmdGood/>{name}, <span className={style.country}>{country}</span>
+            </div>
             <div className={style.weatherBlock}>
                 <div className={style.iconWeather}>
                     <img src={weatherIcon} alt="icon"/>
-                    <span>{main}</span>
+                    <span>{des}</span>
                 </div>
                 <div className={style.temp}>
                     {temperature}
@@ -51,7 +47,7 @@ const CurrentWeatherList = (props) => {
                 </div>
                 <img src={Untitled} alt=""/>
                 <div className={style.sunset}>
-                    <IoIosMoon />
+                    <IoIosMoon/>
                     <span>{sunsetTime}</span>
                 </div>
             </div>

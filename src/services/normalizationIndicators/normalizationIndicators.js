@@ -5,12 +5,16 @@ export const sunTime = (sunTime) => {
     return `${hour}:${minute}`;
 }
 
-export const normalizationTemp = (temp) => {
-    return Math.round(temp)
+export const roundNumber = (num) => {
+    return Math.round(num)
 }
 
 export const normalizationVisibility = (distance) => {
-    return distance > 1000 ? `${distance / 1000} km` : `${distance} m`
+    if (distance > 1000) {
+        distance = Math.round(distance / 1000)
+        return `${distance} km`
+    }
+    return `${distance} m`
 }
 
 export const windDirection = (deg) => {
@@ -21,11 +25,17 @@ export const windDirection = (deg) => {
     else if (deg >= 337.6 || deg <= 22.5) return 'N'
     else if (deg >= 22.6 && deg <= 67.5) return 'NE'
     else if (deg >= 67.6 && deg <= 112.5) return 'E'
-    else return 'SE'
+    return 'SE'
 }
 
 export const getUrlIcon = (icon) => {
     return `http://openweathermap.org/img/wn/${icon}@2x.png`
+}
+
+export const descriptionReplace = (description) => {
+    if (!description) return description;
+
+    return description[0].toUpperCase() + description.slice(1);
 }
 
 export const normalizationWeatherArr = (arr) => {
@@ -35,13 +45,14 @@ export const normalizationWeatherArr = (arr) => {
             visibility: normalizationVisibility(item.visibility),
             main: {
                 ...item.main,
-                temp: normalizationTemp(item.main.temp)
+                temp: roundNumber(item.main.temp)
             },
             weather: [{
                 ...item.weather[0],
-                icon: getUrlIcon(item.weather[0].icon)
+                icon: getUrlIcon(item.weather[0].icon),
+                description: descriptionReplace(item.weather[0].description)
             }],
-            wind:{
+            wind: {
                 ...item.wind,
                 deg: windDirection(item.wind.deg)
             }
