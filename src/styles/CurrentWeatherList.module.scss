@@ -11,12 +11,12 @@
   }
 
   .weatherBlock {
-    @apply flex flex-row-reverse w-full items-center justify-center mt-12 px-5;
+    @apply flex flex-row-reverse w-full items-center justify-between mt-12 ;
 
     .iconWeather {
       @apply flex flex-col items-center;
       img {
-        @apply w-20 p-0 -mb-6 -mt-2;
+        @apply w-20 -mb-6 -mt-2;
       }
 
       span {

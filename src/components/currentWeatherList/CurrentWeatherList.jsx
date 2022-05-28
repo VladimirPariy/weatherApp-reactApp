@@ -1,7 +1,7 @@
 import React from 'react';
 import {
     descriptionReplace,
-    normalizationVisibility, roundNumber, sunTime, windDirection
+    normalizationVisibility, roundNumber, roundWindSpeed, sunTime, windDirection
 } from "../../services/normalizationIndicators/normalizationIndicators";
 import style from "./../../styles/CurrentWeatherList.module.scss"
 import {IoIosMoon, IoIosSunny} from "react-icons/io";
@@ -24,7 +24,8 @@ const CurrentWeatherList = (props) => {
         sunriseTime = sunTime(sunrise), sunsetTime = sunTime(sunset),
         visibilityDistance = normalizationVisibility(visibility),
         des = descriptionReplace(description),
-        windDir = windDirection(deg);
+        windDir = windDirection(deg),
+        windSpeed = roundWindSpeed(speed);
 
     return (
         <div className={style.wrapper}>
@@ -52,7 +53,7 @@ const CurrentWeatherList = (props) => {
                 </div>
             </div>
             <ul className={style.weatherList}>
-                <li>Wind speed: {speed} m/s</li>
+                <li>Wind speed: {windSpeed} m/s</li>
                 <li>Wind direction: {windDir}</li>
                 <li>Humidity: {humidity}%</li>
                 <li>Pressure: {pressure} hPa</li>

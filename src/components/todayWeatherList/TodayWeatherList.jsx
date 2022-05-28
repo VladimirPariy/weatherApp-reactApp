@@ -13,16 +13,34 @@ const TodayWeatherList = (props) => {
     return (
         <>
             {weatherToday.map((item) => {
-                const {dt_txt, main: {temp}, wind: {speed, deg}, weather: [{description, icon}]} = item
+                const {dt_txt, main: {temp, humidity, pressure}, wind: {speed, deg}, weather: [{description, icon}], visibility, } = item
 
                 return (
                     <div className={style.weatherCard} key={item.dt}>
-                        <div className={style.time}>{dt_txt.slice(11, 16)}</div>
-                        <img className={style.icon} src={icon} alt=""/>
-                        <div className={style.weather}>{description}</div>
-                        <div className={style.temp}>{temp}&deg;</div>
-                        <div className={style.windSpeed}>{speed}</div>
-                        <div className={style.windDir}>{deg}</div>
+                        <details>
+                            <summary>
+                                <div className={style.time}>{dt_txt.slice(11, 16)}</div>
+                                <div className={style.iconAndTemp}>
+                                    <div className={style.temp}>{temp}&deg;</div>
+                                        <img className={style.icon} src={icon} alt=""/>
+
+                                </div>
+
+                            </summary>
+                            <ul className={style.list}>
+                                <li>Description: {description}</li>
+                                <li>Wind speed: {speed} m/s</li>
+                                <li>Wind direction: {deg}</li>
+                                <li>Humidity: {humidity}%</li>
+                                <li>Pressure: {pressure} hPa</li>
+                                <li>Visibility: {visibility}</li>
+                            </ul>
+                            {/*<div className={style.weather}></div>*/}
+                            {/*<div className={style.windSpeed}></div>*/}
+                            {/*<div className={style.windDir}></div>*/}
+                        </details>
+
+
                     </div>)
             })}
         </>

@@ -19,7 +19,7 @@ const WeatherToday = ({currentCity}) => {
 
 
     return (
-        <div>
+        <div className={style.wrapper}>
             {currentWeather ?
                 <>
                     <div className={style.cityAndCountry}>
@@ -31,7 +31,10 @@ const WeatherToday = ({currentCity}) => {
                             {currentWeather.city.country}
                         </span>
                     </div>
-                    <TodayWeatherList {...currentWeather.list}/>
+                    <div className={style.container}>
+                        <TodayWeatherList {...currentWeather.list}/>
+                    </div>
+
                 </>
                 : 'loader'}
         </div>

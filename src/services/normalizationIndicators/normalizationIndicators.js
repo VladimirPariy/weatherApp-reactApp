@@ -9,6 +9,10 @@ export const roundNumber = (num) => {
     return Math.round(num)
 }
 
+export const roundWindSpeed = (num) => {
+    return (Math.round(num * 10))/10
+}
+
 export const normalizationVisibility = (distance) => {
     if (distance > 1000) {
         distance = Math.round(distance / 1000)
@@ -54,7 +58,8 @@ export const normalizationWeatherArr = (arr) => {
             }],
             wind: {
                 ...item.wind,
-                deg: windDirection(item.wind.deg)
+                deg: windDirection(item.wind.deg),
+                speed: roundWindSpeed(item.wind.speed)
             }
         }
     })
