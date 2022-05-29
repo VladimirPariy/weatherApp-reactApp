@@ -3,6 +3,7 @@ import style from '../../styles/WeatherNow.module.scss'
 import CurrentWeatherList from '../../components/currentWeatherList/CurrentWeatherList';
 import {useState} from "react";
 import {fetchingWeather} from "../../services/fetching/fetchingWeather";
+import Loader from "../../components/UI/loader/Loader";
 
 const CurrentWeather = ({currentCity}) => {
 
@@ -19,7 +20,7 @@ const CurrentWeather = ({currentCity}) => {
 
     return (
         <div className={style.wrapper}>
-            {currentWeather ? <CurrentWeatherList {...currentWeather}/> : 'loader'}
+            {currentWeather ? <CurrentWeatherList {...currentWeather}/> : <Loader/>}
         </div>
     );
 };

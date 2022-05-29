@@ -1,15 +1,15 @@
 .wrapper {
-  @apply w-full;
+  @apply w-full p-4;
 
   .cityAndCountry {
     @apply w-full flex text-3xl justify-center items-center;
 
-    .cityName {
-      @apply flex px-3;
+    svg {
+      @apply text-2xl;
     }
 
     .countryName {
-      @apply text-cyan-200;
+      @apply text-cyan-100 pl-3;
     }
   }
 
@@ -24,7 +24,7 @@
         summary {
           @apply self-start;
           .time {
-            @apply text-2xl inline-block w-11/12 text-center underline;
+            @apply text-2xl inline-block w-10/12 text-center underline;
           }
 
           .iconAndTemp {
@@ -42,7 +42,7 @@
         }
 
         .list {
-          li{
+          li {
             @apply text-center py-1 bg-slate-600 my-2 rounded-xl ;
 
           }

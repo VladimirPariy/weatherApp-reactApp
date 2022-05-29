@@ -4,6 +4,7 @@ import {fetchingWeather} from "../../services/fetching/fetchingWeather";
 import TodayWeatherList from "../../components/todayWeatherList/TodayWeatherList";
 import style from "../../styles/TodayWeatherList.module.scss";
 import {MdOutlineFmdGood} from "react-icons/md";
+import Loader from "../../components/UI/loader/Loader";
 
 const WeatherToday = ({currentCity}) => {
 
@@ -23,10 +24,9 @@ const WeatherToday = ({currentCity}) => {
             {currentWeather ?
                 <>
                     <div className={style.cityAndCountry}>
-                        <span className={style.cityName}>
+
                             <MdOutlineFmdGood/>
                             {currentWeather.city.name},
-                        </span>
                         <span className={style.countryName}>
                             {currentWeather.city.country}
                         </span>
@@ -36,7 +36,8 @@ const WeatherToday = ({currentCity}) => {
                     </div>
 
                 </>
-                : 'loader'}
+                : <Loader/>}
+
         </div>
     );
 };
