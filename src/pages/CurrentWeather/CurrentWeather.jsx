@@ -10,12 +10,12 @@ const CurrentWeather = ({currentCity}) => {
     let type = "weather?";
 
     const [currentWeather, setCurrentWeather] = useState(() => {
-        fetchingWeather(currentCity, type)
+        fetchingWeather(currentCity, type).then(res => setCurrentWeather(res))
     });
 
     useEffect(() => {
         fetchingWeather(currentCity, type).then(res => setCurrentWeather(res))
-    }, [currentCity])
+    }, [currentCity, type])
 
 
     return (

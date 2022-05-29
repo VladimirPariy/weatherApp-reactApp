@@ -1,39 +1,34 @@
-import React from "react";
-import {useEffect, useState} from "react";
+import React, {useEffect, useState} from 'react';
 import {fetchingWeather} from "../../services/fetching/fetchingWeather";
-import TodayWeatherList from "../../components/todayWeatherList/TodayWeatherList";
 import style from "../../styles/TodayWeatherList.module.scss";
 import {MdOutlineFmdGood} from "react-icons/md";
 import Loader from "../../components/UI/loader/Loader";
+import FourDaysWeatherList from "../../components/fourDaysWeatherList/FourDaysWeatherList";
 
-const WeatherToday = ({currentCity}) => {
-
+const WeatherForFourDays = ({currentCity}) => {
     let type = "forecast?";
 
-    const [weatherToday, setWeatherToday] = useState(() => {
-        fetchingWeather(currentCity, type).then(res => setWeatherToday(res))
+    const [weatherFiveDays, setWeatherFiveDays] = useState(() => {
+        fetchingWeather(currentCity, type).then(res => setWeatherFiveDays(res))
     });
 
     useEffect(() => {
-        fetchingWeather(currentCity, type).then(res => setWeatherToday(res))
+        fetchingWeather(currentCity, type).then(res => setWeatherFiveDays(res))
     }, [currentCity, type]);
-
-
-
     return (
         <div className={style.wrapper}>
-            {weatherToday ?
+            {weatherFiveDays ?
                 <>
                     <div className={style.cityAndCountry}>
 
-                            <MdOutlineFmdGood/>
-                            {weatherToday.city.name},
+                        <MdOutlineFmdGood/>
+                        {weatherFiveDays.city.name},
                         <span className={style.countryName}>
-                            {weatherToday.city.country}
+                            {weatherFiveDays.city.country}
                         </span>
                     </div>
                     <div className={style.container}>
-                        <TodayWeatherList {...weatherToday.list}/>
+                        <FourDaysWeatherList {...weatherFiveDays.list}/>
                     </div>
 
                 </>
@@ -43,4 +38,4 @@ const WeatherToday = ({currentCity}) => {
     );
 };
 
-export default WeatherToday;
+export default WeatherForFourDays;

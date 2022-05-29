@@ -43,7 +43,7 @@ export const descriptionReplace = (description) => {
 }
 
 export const normalizationWeatherArr = (arr) => {
-    return arr.map((item, ind) => {
+    return arr.map((item) => {
         return {
             ...item,
             visibility: normalizationVisibility(item.visibility),

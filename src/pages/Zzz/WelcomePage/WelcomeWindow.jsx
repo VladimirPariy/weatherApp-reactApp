@@ -1,7 +1,7 @@
 import React from 'react';
-import style from "../../styles/WelcomeWindow.module.scss";
-import weatherIcon from "../../Assets/Icons/WeatherIcon/sivvus_weather_symbols_2.svg";
-import Search from "../../components/UI/Search/Search";
+import style from "../../../styles/WelcomeWindow.module.scss";
+import weatherIcon from "../../../Assets/Icons/sivvus_weather_symbols_2.svg";
+import Search from "../../../components/UI/Search/Search";
 
 const WelcomeWindow = ({getCity}) => {
     return (
