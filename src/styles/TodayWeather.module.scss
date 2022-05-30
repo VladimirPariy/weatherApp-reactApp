@@ -1,0 +1,26 @@
+.wrapper {
+  @apply w-full p-4;
+
+  .cityAndCountry {
+    @apply w-full flex text-3xl justify-center items-center relative;
+
+    svg {
+      @apply text-2xl mr-2;
+    }
+
+    .countryName {
+      @apply text-cyan-100 pl-3;
+    }
+
+    .bookmark {
+      @apply absolute right-1 top-1;
+      svg {
+        @apply text-3xl;
+      }
+    }
+  }
+
+  .container {
+    @apply w-full flex flex-wrap justify-between pt-7 ;
+  }
+}

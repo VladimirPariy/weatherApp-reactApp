@@ -1,4 +1,5 @@
 import React from 'react';
+import style from './../../styles/FourDaysWeatherList.module.scss'
 import {selectionFourDaysWeather} from "../../services/selectionWeather/selectionWeather";
 import {normalizationWeatherArr} from "../../services/normalizationIndicators/normalizationIndicators";
 

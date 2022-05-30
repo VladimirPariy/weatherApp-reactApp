@@ -1,11 +1,12 @@
 import React, {useEffect, useState} from 'react';
+import style from "../../styles/FourDaysWeather.module.scss";
 import {fetchingWeather} from "../../services/fetching/fetchingWeather";
-import style from "../../styles/TodayWeatherList.module.scss";
 import {MdOutlineFmdGood} from "react-icons/md";
 import Loader from "../../components/UI/loader/Loader";
 import FourDaysWeatherList from "../../components/fourDaysWeatherList/FourDaysWeatherList";
+import BookmarkCity from "../../components/UI/bookmarkCity/BookmarkCity";
 
-const WeatherForFourDays = ({currentCity}) => {
+const FourDaysWeather = ({currentCity}) => {
     let type = "forecast?";
 
     const [weatherFiveDays, setWeatherFiveDays] = useState(() => {
@@ -26,6 +27,7 @@ const WeatherForFourDays = ({currentCity}) => {
                         <span className={style.countryName}>
                             {weatherFiveDays.city.country}
                         </span>
+                        <span className={style.bookmark}><BookmarkCity/></span>
                     </div>
                     <div className={style.container}>
                         <FourDaysWeatherList {...weatherFiveDays.list}/>
@@ -38,4 +40,4 @@ const WeatherForFourDays = ({currentCity}) => {
     );
 };
 
-export default WeatherForFourDays;
+export default FourDaysWeather;

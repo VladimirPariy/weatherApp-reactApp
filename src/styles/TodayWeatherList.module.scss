@@ -1,53 +1,39 @@
-.wrapper {
-  @apply w-full p-4;
+.weatherCard {
+  @apply grow;
 
-  .cityAndCountry {
-    @apply w-full flex text-3xl justify-center items-center;
+  details {
+    @apply flex bg-slate-500 rounded-xl p-2 m-2;
+    summary {
+      @apply self-start;
+      .time {
+        @apply text-2xl inline-block w-10/12 text-center underline;
+      }
 
-    svg {
-      @apply text-2xl;
-    }
+      .iconAndTemp {
+        @apply flex justify-between items-center max-w-[200px] m-auto;
 
-    .countryName {
-      @apply text-cyan-100 pl-3;
-    }
-  }
+        .temp {
+          @apply text-5xl;
+        }
 
-  .container {
-    @apply w-full flex flex-wrap justify-between pt-7 ;
+        .iconAndWeather {
+          @apply w-20;
 
-    .weatherCard {
-      @apply m-2 px-2 bg-slate-500 rounded-xl grow;
-
-      details {
-        @apply flex;
-        summary {
-          @apply self-start;
-          .time {
-            @apply text-2xl inline-block w-10/12 text-center underline;
-          }
-
-          .iconAndTemp {
-            @apply flex justify-between items-center max-w-[200px] m-auto;
-
-            .temp {
-              @apply text-5xl;
-            }
-
-            .icon {
-              @apply w-20;
-            }
-
+          .weather {
+            @apply block text-center -mt-5 text-sm;
           }
         }
 
-        .list {
-          li {
-            @apply text-center py-1 bg-slate-600 my-2 rounded-xl ;
+      }
+    }
 
-          }
-        }
+    .list {
+      li {
+        @apply text-center py-1 px-3 bg-slate-600 my-2 rounded-xl;
+
       }
     }
   }
 }
+
+

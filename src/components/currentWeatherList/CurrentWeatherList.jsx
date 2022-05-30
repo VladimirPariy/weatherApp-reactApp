@@ -1,12 +1,14 @@
 import React from 'react';
+import style from "./../../styles/CurrentWeatherList.module.scss"
 import {
     descriptionReplace,
     normalizationVisibility, roundNumber, roundWindSpeed, sunTime, windDirection
 } from "../../services/normalizationIndicators/normalizationIndicators";
-import style from "./../../styles/CurrentWeatherList.module.scss"
+
 import {IoIosMoon, IoIosSunny} from "react-icons/io";
 import {MdOutlineFmdGood} from "react-icons/md";
 import Untitled from "./../../Assets/Icons/Untitled.svg"
+import BookmarkCity from "../UI/bookmarkCity/BookmarkCity";
 
 const CurrentWeatherList = (props) => {
 
@@ -30,6 +32,7 @@ const CurrentWeatherList = (props) => {
     return (
         <div className={style.wrapper}>
             <div className={style.city}><MdOutlineFmdGood/>{name}, <span className={style.country}>{country}</span>
+                <span className={style.bookmark}><BookmarkCity/></span>
             </div>
             <div className={style.weatherBlock}>
                 <div className={style.iconWeather}>

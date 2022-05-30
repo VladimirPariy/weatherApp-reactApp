@@ -1,10 +1,11 @@
-import React from "react";
-import {useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
+import style from "../../styles/TodayWeather.module.scss";
 import {fetchingWeather} from "../../services/fetching/fetchingWeather";
 import TodayWeatherList from "../../components/todayWeatherList/TodayWeatherList";
-import style from "../../styles/TodayWeatherList.module.scss";
+
 import {MdOutlineFmdGood} from "react-icons/md";
 import Loader from "../../components/UI/loader/Loader";
+import BookmarkCity from "../../components/UI/bookmarkCity/BookmarkCity";
 
 const WeatherToday = ({currentCity}) => {
 
@@ -30,6 +31,7 @@ const WeatherToday = ({currentCity}) => {
                         <span className={style.countryName}>
                             {weatherToday.city.country}
                         </span>
+                        <span className={style.bookmark}><BookmarkCity/></span>
                     </div>
                     <div className={style.container}>
                         <TodayWeatherList {...weatherToday.list}/>

@@ -7,7 +7,7 @@ import style from "./../../styles/TodayWeatherList.module.scss"
 const TodayWeatherList = (props) => {
 
     const weatherToday = normalizationWeatherArr(selectionWeather(Object.values(props)));
-
+    console.log(weatherToday)
     return (
         <>
             {weatherToday.map((item) => {
@@ -15,7 +15,7 @@ const TodayWeatherList = (props) => {
                     dt_txt,
                     main: {temp, humidity, pressure},
                     wind: {speed, deg},
-                    weather: [{description, icon}],
+                    weather: [{description, icon, main}],
                     visibility,
                     dt
                 } = item
@@ -27,7 +27,11 @@ const TodayWeatherList = (props) => {
                                 <div className={style.time}>{dt_txt.slice(11, 16)}</div>
                                 <div className={style.iconAndTemp}>
                                     <div className={style.temp}>{temp}&deg;</div>
-                                    <img className={style.icon} src={icon} alt=""/>
+                                    <div className={style.iconAndWeather}>
+                                        <img className={style.icon} src={icon} alt=""/>
+                                        <span className={style.weather}>{main}</span>
+                                    </div>
+
                                 </div>
                             </summary>
 

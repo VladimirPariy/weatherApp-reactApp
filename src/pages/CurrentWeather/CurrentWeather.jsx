@@ -1,8 +1,7 @@
-import React, {useEffect} from 'react';
-import style from '../../styles/WeatherNow.module.scss'
-import CurrentWeatherList from '../../components/currentWeatherList/CurrentWeatherList';
-import {useState} from "react";
+import React, {useEffect, useState} from 'react';
+import style from '../../styles/CurrentWeather.module.scss';
 import {fetchingWeather} from "../../services/fetching/fetchingWeather";
+import CurrentWeatherList from '../../components/currentWeatherList/CurrentWeatherList';
 import Loader from "../../components/UI/loader/Loader";
 
 const CurrentWeather = ({currentCity}) => {
