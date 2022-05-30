@@ -6,7 +6,7 @@ import style from "./../../styles/TodayWeatherList.module.scss"
 
 const TodayWeatherList = (props) => {
 
-    const weatherToday = normalizationWeatherArr(selectionWeather(props));
+    const weatherToday = normalizationWeatherArr(selectionWeather(Object.values(props)));
 
     return (
         <>

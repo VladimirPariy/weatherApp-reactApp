@@ -49,7 +49,9 @@ export const normalizationWeatherArr = (arr) => {
             visibility: normalizationVisibility(item.visibility),
             main: {
                 ...item.main,
-                temp: roundNumber(item.main.temp)
+                temp: roundNumber(item.main.temp),
+                temp_min:roundNumber(item.main.temp_min),
+                temp_max:roundNumber(item.main.temp_max)
             },
             weather: [{
                 ...item.weather[0],

@@ -1,9 +1,12 @@
 .search{
-  @apply max-w-md block;
+  @apply max-w-md block relative;
   input{
     @apply rounded-2xl w-full h-10 p-4 mb-4 text-slate-800 font-bold placeholder-slate-300 focus:outline-slate-800 placeholder:font-normal;
   }
   button {
-    @apply uppercase font-bold bg-slate-800 py-2 w-full rounded-2xl hover:opacity-80;
+    @apply  absolute right-0.5 top-1.5;
+    svg{
+      @apply w-10 h-7 text-gray-700;
+    }
   }
 }

@@ -25,7 +25,6 @@ const WeatherToday = ({currentCity}) => {
             {weatherToday ?
                 <>
                     <div className={style.cityAndCountry}>
-
                             <MdOutlineFmdGood/>
                             {weatherToday.city.name},
                         <span className={style.countryName}>

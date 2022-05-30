@@ -33,7 +33,7 @@
   }
 
   .sun {
-    @apply flex justify-between w-full my-10 relative;
+    @apply flex justify-between w-[272px] my-10 relative m-auto;
     img{
       @apply absolute -top-28 left-2 w-72;
     }
