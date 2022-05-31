@@ -83,3 +83,41 @@ export const getDayOfTheWeek = (num) => {
     const dayArr = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
     return dayArr[num]
 }
+
+export const getMinMaxDayTemp = (dayWeatherArr) => {
+    let maxTemp,
+        minTemp;
+    dayWeatherArr.forEach(item => {
+        if (typeof (maxTemp) === 'undefined' || maxTemp < item.main.temp_max) {
+            maxTemp = item.main.temp_max
+        }
+
+        if (typeof (minTemp) === 'undefined' || minTemp > item.main.temp_min) {
+            minTemp = item.main.temp_min
+        }
+    })
+    return [maxTemp, minTemp]
+}
+
+export const determRepeatedWeather = (weatherArr) => {
+    const weatherDes = weatherArr.reduce((acc, rec) => {
+        const weather = rec.weather[0].icon
+        if (Object.keys(acc).length !== 0) {
+            return (Object.keys(acc).indexOf(weather) !== -1) ?
+                {...acc, [weather]: acc[weather] + 1} :
+                {...acc, [weather]: 1}
+        }
+        return {[weather]: 1}
+    }, {})
+
+    let weather,
+        count;
+    Object.entries(weatherDes).forEach(item => {
+        if (typeof (count) === 'undefined' || item[1] >= count) {
+            count = item[1]
+            weather = item[0]
+        }
+    })
+    return weather;
+}
+

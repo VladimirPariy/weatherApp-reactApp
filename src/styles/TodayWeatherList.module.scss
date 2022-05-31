@@ -1,26 +1,26 @@
 .weatherCard {
-  @apply grow;
+  @apply grow w-full;
 
   details {
-    @apply flex bg-slate-500 rounded-xl p-2 m-2;
+    @apply flex bg-slate-700 rounded-xl p-2 m-2;
     summary {
       @apply self-start;
       .time {
-        @apply text-2xl inline-block w-10/12 text-center underline;
+        @apply text-xl inline-block w-11/12 text-center underline;
       }
 
       .iconAndTemp {
         @apply flex justify-between items-center max-w-[200px] m-auto;
 
         .temp {
-          @apply text-5xl;
+          @apply text-4xl;
         }
 
         .iconAndWeather {
-          @apply w-20;
+          @apply w-14;
 
           .weather {
-            @apply block text-center -mt-5 text-sm;
+            @apply block text-center -mt-4 text-sm;
           }
         }
 

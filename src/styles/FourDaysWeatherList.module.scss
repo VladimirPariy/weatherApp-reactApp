@@ -1,1 +1,34 @@
+.wrapper {
+  @apply w-full;
+  .item {
+    details {
+      @apply bg-slate-700 my-3 px-4 rounded-xl;
+      summary {
+        .container {
+          @apply inline-flex justify-between items-center w-11/12 ml-1;
+          .dayOfTheWeek {
+            @apply w-[85px]
+          }
 
+          .icon {
+            @apply w-14;
+          }
+
+          .temp__minmax {
+            .temp__min {
+              @apply pl-2;
+            }
+            .temp__max {
+
+            }
+          }
+        }
+
+
+
+
+
+      }
+    }
+  }
+}
