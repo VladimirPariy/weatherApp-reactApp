@@ -10,7 +10,7 @@ export const roundNumber = (num) => {
 }
 
 export const roundWindSpeed = (num) => {
-    return (Math.round(num * 10))/10
+    return (Math.round(num * 10)) / 10
 }
 
 export const normalizationVisibility = (distance) => {
@@ -42,7 +42,7 @@ export const descriptionReplace = (description) => {
     return description[0].toUpperCase() + description.slice(1);
 }
 
-export const normalizationWeatherArr = (arr) => {
+export const normalizationWeatherArrIndic = (arr) => {
     return arr.map((item) => {
         return {
             ...item,
@@ -50,8 +50,8 @@ export const normalizationWeatherArr = (arr) => {
             main: {
                 ...item.main,
                 temp: roundNumber(item.main.temp),
-                temp_min:roundNumber(item.main.temp_min),
-                temp_max:roundNumber(item.main.temp_max)
+                temp_min: roundNumber(item.main.temp_min),
+                temp_max: roundNumber(item.main.temp_max)
             },
             weather: [{
                 ...item.weather[0],
@@ -65,5 +65,21 @@ export const normalizationWeatherArr = (arr) => {
             }
         }
     })
+}
 
+export const sortedFourDaysWeather = (weatherArr) => {
+    return weatherArr.reduce((acc, rec) => {
+        const date = rec.dt_txt.slice(0, 10)
+        if (Object.keys(acc).length !== 0) {
+            return (Object.keys(acc).indexOf(date) !== -1) ?
+                {...acc, [date]: [...acc[date], rec]} :
+                {...acc, [date]: [rec]}
+        }
+        return {[date]: [rec]}
+    }, {})
+}
+
+export const getDayOfTheWeek = (num) => {
+    const dayArr = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+    return dayArr[num]
 }

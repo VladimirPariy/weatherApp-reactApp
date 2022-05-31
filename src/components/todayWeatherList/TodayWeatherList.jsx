@@ -1,13 +1,12 @@
 import React from 'react';
 import {selectionWeather} from "../../services/selectionWeather/selectionWeather";
-import {normalizationWeatherArr} from "../../services/normalizationIndicators/normalizationIndicators";
+import {normalizationWeatherArrIndic} from "../../services/normalizationIndicators/normalizationIndicators";
 import style from "./../../styles/TodayWeatherList.module.scss"
 
 
 const TodayWeatherList = (props) => {
 
-    const weatherToday = normalizationWeatherArr(selectionWeather(Object.values(props)));
-    console.log(weatherToday)
+    const weatherToday = normalizationWeatherArrIndic(selectionWeather(Object.values(props)));
     return (
         <>
             {weatherToday.map((item) => {
@@ -31,7 +30,6 @@ const TodayWeatherList = (props) => {
                                         <img className={style.icon} src={icon} alt=""/>
                                         <span className={style.weather}>{main}</span>
                                     </div>
-
                                 </div>
                             </summary>
 
