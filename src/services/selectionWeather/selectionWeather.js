@@ -13,7 +13,6 @@ export const selectionFourDaysWeather = (weather) => {
 
     const fullWeather = Object.values(weather).filter(item => {
         const date = item.dt_txt.slice(8, 10)
-        console.log(weather)
         return !(date === dateToday);
     });
 

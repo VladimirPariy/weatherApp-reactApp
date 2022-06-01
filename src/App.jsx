@@ -3,6 +3,7 @@ import style from './styles/App.module.scss'
 import AppRouter from "./components/AppRouter/AppRouter";
 import Nav from "./components/UI/Navbar/Nav";
 
+
 const App = () => {
     const [currentCity, setCurrentCity] = useState('Kyiv')
 
