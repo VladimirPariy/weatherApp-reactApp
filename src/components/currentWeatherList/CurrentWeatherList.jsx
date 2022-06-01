@@ -4,13 +4,15 @@ import {
     descriptionReplace,
     normalizationVisibility, roundNumber, roundWindSpeed, sunTime, windDirection
 } from "../../services/normalizationIndicators/normalizationIndicators";
-
 import {IoIosMoon, IoIosSunny} from "react-icons/io";
 import {MdOutlineFmdGood} from "react-icons/md";
 import Untitled from "./../../Assets/Icons/Untitled.svg"
 import BookmarkCity from "../UI/bookmarkCity/BookmarkCity";
+import Search from "../UI/Search/Search";
+import Modal from "../UI/modal/Modal";
 
-const CurrentWeatherList = (props) => {
+
+const CurrentWeatherList = ({currentWeather, visible, setVisible, getCity}) => {
 
     const {
         name,
@@ -19,7 +21,7 @@ const CurrentWeatherList = (props) => {
         main: {humidity, pressure, temp},
         wind: {speed, deg},
         weather: [{icon, description}]
-    } = props
+    } = currentWeather
 
     const weatherIcon = `http://openweathermap.org/img/wn/${icon}@2x.png`,
         temperature = roundNumber(temp),
@@ -31,9 +33,15 @@ const CurrentWeatherList = (props) => {
 
     return (
         <div className={style.wrapper}>
-            <div className={style.city}><MdOutlineFmdGood/>{name}, <span className={style.country}>{country}</span>
-                <span className={style.bookmark}><BookmarkCity/></span>
-            </div>
+            <Modal visible={visible} setVisible={setVisible}>
+                <Search getCity={getCity}/>
+            </Modal>
+            <button className={style.city} onClick={()=> setVisible(true)}>
+                <MdOutlineFmdGood/>
+                {name},
+                <span className={style.country}>{country}</span>
+            </button>
+            <span className={style.bookmark}><BookmarkCity/></span>
             <div className={style.weatherBlock}>
                 <div className={style.iconWeather}>
                     <img src={weatherIcon} alt="icon"/>

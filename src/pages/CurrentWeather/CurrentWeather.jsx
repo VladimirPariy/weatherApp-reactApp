@@ -4,7 +4,7 @@ import {fetchingWeather} from "../../services/fetching/fetchingWeather";
 import CurrentWeatherList from '../../components/currentWeatherList/CurrentWeatherList';
 import Loader from "../../components/UI/loader/Loader";
 
-const CurrentWeather = ({currentCity}) => {
+const CurrentWeather = ({currentCity, getCity, visible, setVisible}) => {
 
     let type = "weather?";
 
@@ -19,7 +19,7 @@ const CurrentWeather = ({currentCity}) => {
 
     return (
         <div className={style.wrapper}>
-            {currentWeather ? <CurrentWeatherList {...currentWeather}/> : <Loader/>}
+            {currentWeather ? <CurrentWeatherList currentWeather={currentWeather} visible={visible} setVisible={setVisible} getCity={getCity}/> : <Loader/>}
         </div>
     );
 };

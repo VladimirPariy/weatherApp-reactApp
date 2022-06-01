@@ -5,8 +5,10 @@ import {MdOutlineFmdGood} from "react-icons/md";
 import Loader from "../../components/UI/loader/Loader";
 import FourDaysWeatherList from "../../components/fourDaysWeatherList/FourDaysWeatherList";
 import BookmarkCity from "../../components/UI/bookmarkCity/BookmarkCity";
+import Modal from "../../components/UI/modal/Modal";
+import Search from "../../components/UI/Search/Search";
 
-const FourDaysWeather = ({currentCity}) => {
+const FourDaysWeather = ({currentCity, getCity, visible, setVisible}) => {
     let type = "forecast?";
 
     const [weatherFiveDays, setWeatherFiveDays] = useState(() => {
@@ -20,15 +22,18 @@ const FourDaysWeather = ({currentCity}) => {
         <div className={style.wrapper}>
             {weatherFiveDays ?
                 <>
-                    <div className={style.cityAndCountry}>
+                    <Modal visible={visible} setVisible={setVisible}>
+                        <Search getCity={getCity}/>
+                    </Modal>
+                    <button className={style.cityAndCountry} onClick={()=> setVisible(true)}>
 
                         <MdOutlineFmdGood/>
                         {weatherFiveDays.city.name},
                         <span className={style.countryName}>
                             {weatherFiveDays.city.country}
                         </span>
-                        <span className={style.bookmark}><BookmarkCity/></span>
-                    </div>
+                    </button>
+                    <span className={style.bookmark}><BookmarkCity/></span>
                     <div className={style.container}>
                         <FourDaysWeatherList {...weatherFiveDays.list}/>
                     </div>

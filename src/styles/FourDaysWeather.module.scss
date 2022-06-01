@@ -2,7 +2,7 @@
   @apply w-full p-4;
 
   .cityAndCountry {
-    @apply w-full flex text-3xl justify-center items-center relative;
+    @apply m-auto flex text-3xl font-bold justify-center items-center relative;
 
     svg {
       @apply text-2xl mr-2;
