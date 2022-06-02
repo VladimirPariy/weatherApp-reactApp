@@ -6,7 +6,7 @@ import WeatherToday from "../../pages/WeatherToday/WeatherToday";
 import FourDaysWeather from "../../pages/FourDaysWeather/FourDaysWeather";
 
 const AppRouter = ({getCity, currentCity, visible, setVisible}) => {
-
+    console.log(getCity)
 
     return (
         <Routes>

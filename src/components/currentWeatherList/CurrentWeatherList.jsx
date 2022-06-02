@@ -12,7 +12,7 @@ import Search from "../UI/Search/Search";
 import Modal from "../UI/modal/Modal";
 
 
-const CurrentWeatherList = ({currentWeather, visible, setVisible, getCity}) => {
+const CurrentWeatherList = ({currentWeather, visible, setVisible, getCity, currentCity}) => {
 
     const {
         name,
@@ -34,9 +34,9 @@ const CurrentWeatherList = ({currentWeather, visible, setVisible, getCity}) => {
     return (
         <div className={style.wrapper}>
             <Modal visible={visible} setVisible={setVisible}>
-                <Search getCity={getCity}/>
+                <Search getCity={getCity} currentCity={currentCity}/>
             </Modal>
-            <button className={style.city} onClick={()=> setVisible(true)}>
+            <button className={style.city} onClick={() => setVisible(true)}>
                 <MdOutlineFmdGood/>
                 {name},
                 <span className={style.country}>{country}</span>
@@ -52,18 +52,9 @@ const CurrentWeatherList = ({currentWeather, visible, setVisible, getCity}) => {
                     <span className={style.cel}>&deg;</span>
                 </div>
             </div>
-            <div className={style.sun}>
-                <div className={style.sunrise}>
-                    <span>{sunriseTime}</span>
-                    <IoIosSunny/>
-                </div>
-                <img src={Untitled} alt=""/>
-                <div className={style.sunset}>
-                    <IoIosMoon/>
-                    <span>{sunsetTime}</span>
-                </div>
-            </div>
             <ul className={style.weatherList}>
+                <li>Sun rise: {sunriseTime} </li>
+                <li>Sun set: {sunsetTime} </li>
                 <li>Wind speed: {windSpeed} m/s</li>
                 <li>Wind direction: {windDir}</li>
                 <li>Humidity: {humidity}%</li>

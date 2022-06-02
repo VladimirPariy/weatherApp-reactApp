@@ -19,7 +19,7 @@ const CurrentWeather = ({currentCity, getCity, visible, setVisible}) => {
 
     return (
         <div className={style.wrapper}>
-            {currentWeather ? <CurrentWeatherList currentWeather={currentWeather} visible={visible} setVisible={setVisible} getCity={getCity}/> : <Loader/>}
+            {currentWeather ? <CurrentWeatherList currentWeather={currentWeather} visible={visible} setVisible={setVisible} getCity={getCity} currentCity={currentCity}/> : <Loader/>}
         </div>
     );
 };

@@ -23,10 +23,9 @@ const FourDaysWeather = ({currentCity, getCity, visible, setVisible}) => {
             {weatherFiveDays ?
                 <>
                     <Modal visible={visible} setVisible={setVisible}>
-                        <Search getCity={getCity}/>
+                        <Search getCity={getCity} currentCity={currentCity}/>
                     </Modal>
                     <button className={style.cityAndCountry} onClick={()=> setVisible(true)}>
-
                         <MdOutlineFmdGood/>
                         {weatherFiveDays.city.name},
                         <span className={style.countryName}>

@@ -5,7 +5,7 @@ import Nav from "./components/UI/Navbar/Nav";
 
 
 const App = () => {
-    const [currentCity, setCurrentCity] = useState('Kyiv')
+    const [currentCity, setCurrentCity] = useState(()=>'Kyiv')
     const [modal, setModal] = useState(false)
 
     useEffect(() => {
@@ -13,19 +13,15 @@ const App = () => {
         setModal(false)
     }, [currentCity])
 
-    function getCity(city = 'Kyiv') {
-        if (city){
-            setCurrentCity(city)
-        }else{
-            setCurrentCity('Kyiv')
-        }
-
+    function getCity(city ) {
+        setCurrentCity(city)
     }
 
+    console.log(currentCity)
     return (
         <div className={style.wrapper}>
             <div className={style.container}>
-                <Nav />
+                <Nav/>
                 <AppRouter currentCity={currentCity} getCity={getCity} visible={modal} setVisible={setModal}/>
             </div>
 

@@ -2,10 +2,10 @@ import React, { useEffect, useRef, useState} from 'react';
 import style from "../../../styles/Search.module.scss";
 import {GiMagnifyingGlass} from "react-icons/gi";
 
-const Search = ({getCity}) => {
-    const [search, setSearch] = useState('')
-    const input = useRef('')
-
+const Search = ({getCity, currentCity}) => {
+    const [search, setSearch] = useState(currentCity)
+    const input = useRef({search})
+    console.log(search)
     useEffect(()=> {
         getCity(search)
     }, [getCity, search])
@@ -18,7 +18,8 @@ const Search = ({getCity}) => {
                    ref={input}
             />
                 <button onClick={() => {
-                    setSearch(input.current.value)
+                    setSearch(input.current.value);
+                    getCity(search)
                 }}>
                     <GiMagnifyingGlass/>
                 </button>
