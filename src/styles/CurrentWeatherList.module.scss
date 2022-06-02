@@ -1,7 +1,7 @@
 .wrapper {
   @apply flex flex-col items-start relative;
   .city {
-    @apply text-3xl flex items-center justify-center w-full;
+    @apply m-auto flex text-3xl font-bold justify-center items-center relative;
     svg {
       @apply text-2xl mr-2;
     }
@@ -10,11 +10,12 @@
       @apply text-cyan-100 pl-3;
     }
 
-    .bookmark {
-      @apply absolute right-1 top-1;
-      svg {
-        @apply text-3xl;
-      }
+
+  }
+  .bookmark {
+    @apply absolute right-3 top-1;
+    svg {
+      @apply text-3xl;
     }
   }
 

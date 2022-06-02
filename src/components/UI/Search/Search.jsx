@@ -20,6 +20,7 @@ const Search = ({getCity, currentCity}) => {
                 <button onClick={() => {
                     setSearch(input.current.value);
                     getCity(search)
+                    input.current.value = ''
                 }}>
                     <GiMagnifyingGlass/>
                 </button>
