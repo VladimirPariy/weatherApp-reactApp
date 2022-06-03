@@ -1,13 +1,25 @@
 import React from 'react';
-import style from "../../styles/WeatherPage.module.scss";
+import style from "./WeatherPage.module.scss";
 import weatherIcon from "../../Assets/Icons/sivvus_weather_symbols_2.svg";
+import {Link} from "react-router-dom";
+import {GiMagnifyingGlass} from "react-icons/gi";
 import Search from "../../components/UI/Search/Search";
 
 
 const WeatherPage = ({getCity}) => {
+
+
     return (
         <div className={style.container}>
-            <Search getCity={getCity}/>
+            <div className={style.search}>
+                <Search getCity={getCity}>
+                    <Link to='/current'>
+                        <GiMagnifyingGlass/>
+                    </Link>
+                </Search>
+
+
+            </div>
             <div className={style.image}>
                 <img src={weatherIcon} alt=""/>
             </div>

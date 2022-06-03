@@ -1,7 +1,7 @@
 import React from 'react';
 import {selectionWeather} from "../../services/selectionWeather/selectionWeather";
 import {normalizationWeatherArrIndic} from "../../services/normalizationIndicators/normalizationIndicators";
-import style from "./../../styles/TodayWeatherList.module.scss"
+import style from "./TodayWeatherList.module.scss"
 
 
 const TodayWeatherList = (props) => {

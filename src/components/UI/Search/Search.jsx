@@ -1,29 +1,28 @@
-import React, { useEffect, useRef, useState} from 'react';
-import style from "../../../styles/Search.module.scss";
-import {GiMagnifyingGlass} from "react-icons/gi";
+import React, {useState} from 'react';
+import style from "./Search.module.scss";
+import SearchButton from "./searchButton/SearchButton";
+import SearchInput from "./searchInput/SearchInput";
 
-const Search = ({getCity, currentCity}) => {
-    const [search, setSearch] = useState(currentCity)
-    const input = useRef({search})
-    console.log(search)
-    useEffect(()=> {
+const Search = ({getCity, children}) => {
+
+    const [search, setSearch] = useState('')
+
+
+    const searchCity = () => {
         getCity(search)
-    }, [getCity, search])
+        setSearch('')
+    }
 
     return (
         <div className={style.search}>
-
-            <input type="text"
-                   placeholder="Search city"
-                   ref={input}
+            <SearchInput
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
             />
-                <button onClick={() => {
-                    setSearch(input.current.value);
-                    getCity(search)
-                    input.current.value = ''
-                }}>
-                    <GiMagnifyingGlass/>
-                </button>
+            <SearchButton
+                onClick={searchCity}>
+                {children}
+            </SearchButton>
         </div>
     );
 };

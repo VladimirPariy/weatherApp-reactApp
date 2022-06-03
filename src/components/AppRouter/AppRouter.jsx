@@ -5,18 +5,17 @@ import CurrentWeather from "../../pages/CurrentWeather/CurrentWeather";
 import WeatherToday from "../../pages/WeatherToday/WeatherToday";
 import FourDaysWeather from "../../pages/FourDaysWeather/FourDaysWeather";
 
-const AppRouter = ({getCity, currentCity, visible, setVisible}) => {
-    console.log(getCity)
-
+const AppRouter = ({ ...props}) => {
     return (
         <Routes>
-            <Route path="/" element={<WeatherPage getCity={getCity}/>}/>
-            <Route path="current" element={<CurrentWeather currentCity={currentCity} getCity={getCity} visible={visible} setVisible={setVisible}/>}/>
-            <Route path="today" element={<WeatherToday currentCity={currentCity} getCity={getCity} visible={visible} setVisible={setVisible}/>}/>
-            <Route path="fourdays" element={<FourDaysWeather currentCity={currentCity} getCity={getCity} visible={visible} setVisible={setVisible}/>}/>
+            <Route path="/" element={<WeatherPage getCity={props.getCity}/>}/>
+            <Route path="current" element={<CurrentWeather {...props}/>}/>
+            <Route path="today" element={<WeatherToday {...props}/>}/>
+            <Route path="fourdays" element={<FourDaysWeather {...props}/>}/>
             <Route
                 path="*"
-                element={<WeatherPage to="/" replace/>}
+                element={<WeatherPage to="/" />}
+                replace
             />
         </Routes>
     );

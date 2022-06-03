@@ -1,5 +1,5 @@
 .wrapper {
-  @apply flex flex-col items-start relative;
+  @apply flex flex-col items-start relative w-full;
   .city {
     @apply m-auto flex text-3xl font-bold justify-center items-center relative;
     svg {

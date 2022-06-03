@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import style from './styles/App.module.scss'
+import style from './App.module.scss'
 import AppRouter from "./components/AppRouter/AppRouter";
 import Nav from "./components/UI/Navbar/Nav";
 
@@ -15,9 +15,9 @@ const App = () => {
 
     function getCity(city ) {
         setCurrentCity(city)
+        console.log(1, city)
     }
 
-    console.log(currentCity)
     return (
         <div className={style.wrapper}>
             <div className={style.container}>

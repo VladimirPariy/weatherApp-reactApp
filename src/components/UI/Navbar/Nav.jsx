@@ -1,6 +1,6 @@
 import React from 'react';
-import style from "../../../styles/Nav.module.scss"
-import {NavLink, Outlet} from "react-router-dom";
+import style from "./Nav.module.scss"
+import {NavLink} from "react-router-dom";
 
 const Nav = () => {
     const getClass = ({isActive}) => isActive ? style.active : ""

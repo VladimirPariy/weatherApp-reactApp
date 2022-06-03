@@ -1,5 +1,5 @@
 import React from 'react';
-import style from './../../styles/FourDaysWeatherList.module.scss'
+import style from './FourDaysWeatherList.module.scss'
 import {selectionFourDaysWeather} from "../../services/selectionWeather/selectionWeather";
 import {
     determRepeatedWeather,

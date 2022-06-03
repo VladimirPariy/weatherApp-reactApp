@@ -1,5 +1,5 @@
 import React from 'react';
-import style from "./../../../styles/Loader.module.scss"
+import style from "./Loader.module.scss"
 import loader from "../../../Assets/Icons/Spinner-2s-200px.svg"
 
 const Loader = () => {

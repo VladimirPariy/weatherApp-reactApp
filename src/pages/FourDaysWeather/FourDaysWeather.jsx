@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import style from "../../styles/FourDaysWeather.module.scss";
+import style from "./FourDaysWeather.module.scss";
 import {fetchingWeather} from "../../services/fetching/fetchingWeather";
 import {MdOutlineFmdGood} from "react-icons/md";
 import Loader from "../../components/UI/loader/Loader";
@@ -7,6 +7,9 @@ import FourDaysWeatherList from "../../components/fourDaysWeatherList/FourDaysWe
 import BookmarkCity from "../../components/UI/bookmarkCity/BookmarkCity";
 import Modal from "../../components/UI/modal/Modal";
 import Search from "../../components/UI/Search/Search";
+import HomeLink from "../../components/UI/homeLink/HomeLink";
+import ButtonForModal from "../../components/UI/buttonForModal/ButtonForModal";
+import {GiMagnifyingGlass} from "react-icons/gi";
 
 const FourDaysWeather = ({currentCity, getCity, visible, setVisible}) => {
     let type = "forecast?";
@@ -22,17 +25,23 @@ const FourDaysWeather = ({currentCity, getCity, visible, setVisible}) => {
         <div className={style.wrapper}>
             {weatherFiveDays ?
                 <>
+                    <HomeLink/>
+                    <BookmarkCity/>
+
                     <Modal visible={visible} setVisible={setVisible}>
-                        <Search getCity={getCity} currentCity={currentCity}/>
+                        <Search getCity={getCity}>
+                            <GiMagnifyingGlass/>
+                        </Search>
                     </Modal>
-                    <button className={style.cityAndCountry} onClick={()=> setVisible(true)}>
+
+                    <ButtonForModal setVisible={setVisible}>
                         <MdOutlineFmdGood/>
                         {weatherFiveDays.city.name},
                         <span className={style.countryName}>
                             {weatherFiveDays.city.country}
                         </span>
-                    </button>
-                    <span className={style.bookmark}><BookmarkCity/></span>
+                    </ButtonForModal>
+
                     <div className={style.container}>
                         <FourDaysWeatherList {...weatherFiveDays.list}/>
                     </div>

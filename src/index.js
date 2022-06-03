@@ -1,5 +1,5 @@
-import "./styles/reset.scss"
-import './styles/index.css';
+import "./reset.scss"
+import './index.css';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import {BrowserRouter} from "react-router-dom";
