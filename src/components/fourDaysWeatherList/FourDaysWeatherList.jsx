@@ -11,9 +11,11 @@ import {FaTemperatureHigh, FaWind} from "react-icons/fa";
 import {MdOutlineWaterDrop} from "react-icons/md";
 import {HiOutlineEye} from "react-icons/hi";
 import {GiBottomRight3DArrow} from "react-icons/gi";
+import {BsCloudSun} from "react-icons/bs";
 import Slider from "react-slick";
 import "./../../../node_modules/slick-carousel/slick/slick.css";
 import "./../../../node_modules/slick-carousel/slick/slick-theme.css";
+
 
 const FourDaysWeatherList = (props) => {
     const weatherFourDays = normalizationWeatherArrIndic(selectionFourDaysWeather(Object.values(props)));
@@ -46,14 +48,14 @@ const FourDaysWeatherList = (props) => {
                                     </span>
                                 </div>
                             </summary>
-                            <div className={style.elemIcons}>
-                                <FaTemperatureHigh/>
-                                <FaWind/>
-                                <GiBottomRight3DArrow/>
-                                <MdOutlineWaterDrop/>
-                                <HiOutlineEye/>
-
-                            </div>
+                            <ul className={style.elemIcons}>
+                                <li className={style.elemIcon}><FaTemperatureHigh/></li>
+                                <li className={style.elemIcon}><BsCloudSun/></li>
+                                <li className={style.elemIcon}><FaWind/></li>
+                                <li className={style.elemIcon}><GiBottomRight3DArrow/></li>
+                                <li className={style.elemIcon}><MdOutlineWaterDrop/></li>
+                                <li className={style.elemIcon}><HiOutlineEye/></li>
+                            </ul>
                             <div className={style.wrapperElem}>
                                 <Slider {...settings}>
                                 {item.map(elem => {
@@ -61,6 +63,7 @@ const FourDaysWeatherList = (props) => {
                                         <div className={style.containerForElem} key={elem.dt}>
                                                 <div className={style.time}>{elem.dt_txt.slice(11, 16)}</div>
                                                 <div className={style.temp}>{elem.main.temp}&deg;</div>
+                                                <div className={style.weather}>{elem.weather[0].main}</div>
                                                 <div className={style.windSpeed}>{elem.wind.speed} m/s</div>
                                                 <div className={style.windDer}>{elem.wind.deg}</div>
                                                 <div className={style.humidity}>{elem.main.humidity} %</div>
