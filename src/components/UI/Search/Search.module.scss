@@ -1,5 +1,5 @@
 .search{
-  @apply max-w-md block relative;
+  @apply relative w-[236px];
   input{
     @apply rounded-2xl w-full h-10 p-4 mb-4 text-slate-800 font-bold placeholder-slate-300 focus:outline-slate-800 placeholder:font-normal;
   }

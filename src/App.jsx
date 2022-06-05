@@ -15,7 +15,6 @@ const App = () => {
 
     function getCity(city ) {
         setCurrentCity(city)
-        console.log(1, city)
     }
 
     return (

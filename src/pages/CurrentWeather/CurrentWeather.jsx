@@ -10,22 +10,24 @@ import Search from "../../components/UI/Search/Search";
 import {MdOutlineFmdGood} from "react-icons/md";
 import ButtonForModal from "../../components/UI/buttonForModal/ButtonForModal";
 import {GiMagnifyingGlass} from "react-icons/gi";
+import Error from "../Error/Error";
 
 const CurrentWeather = ({currentCity, getCity, visible, setVisible}) => {
+    const [error, seError] = useState('')
 
     let type = "weather?";
 
     const [currentWeather, setCurrentWeather] = useState(() => {
-        fetchingWeather(currentCity, type).then(res => setCurrentWeather(res))
+        fetchingWeather(currentCity, type).then(res => setCurrentWeather(res)).catch(e => seError(e))
     });
 
     useEffect(() => {
-        fetchingWeather(currentCity, type).then(res => setCurrentWeather(res))
+        fetchingWeather(currentCity, type).then(res => setCurrentWeather(res)).catch(e => seError(e))
     }, [currentCity, type])
 
     return (
         <div className={style.wrapper}>
-            {currentWeather ?
+            {currentWeather && !error.message ?
                 <>
                     <HomeLink/>
 
@@ -51,7 +53,8 @@ const CurrentWeather = ({currentCity, getCity, visible, setVisible}) => {
                         <CurrentWeatherList currentWeather={currentWeather}/>
                     </div>
                 </>
-                : <Loader/>}
+                : error.message ? <Error/> : <Loader/>
+            }
         </div>
     );
 };

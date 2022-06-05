@@ -10,23 +10,24 @@ import Modal from "../../components/UI/modal/Modal";
 import HomeLink from "../../components/UI/homeLink/HomeLink";
 import ButtonForModal from "../../components/UI/buttonForModal/ButtonForModal";
 import {GiMagnifyingGlass} from "react-icons/gi";
+import Error from "../Error/Error";
 
 const WeatherToday = ({currentCity, getCity, visible, setVisible}) => {
+    const [error, seError] = useState('')
 
     let type = "forecast?";
 
     const [weatherToday, setWeatherToday] = useState(() => {
-        fetchingWeather(currentCity, type).then(res => setWeatherToday(res))
+        fetchingWeather(currentCity, type).then(res => setWeatherToday(res)).catch(e => seError(e))
     });
-
     useEffect(() => {
-        fetchingWeather(currentCity, type).then(res => setWeatherToday(res))
+        fetchingWeather(currentCity, type).then(res => setWeatherToday(res)).catch(e => seError(e))
     }, [currentCity, type]);
 
 
     return (
         <div className={style.wrapper}>
-            {weatherToday ?
+            {weatherToday && !error.message ?
                 <>
                     <HomeLink/>
 
@@ -51,8 +52,8 @@ const WeatherToday = ({currentCity, getCity, visible, setVisible}) => {
                     </div>
 
                 </>
-                : <Loader/>}
-
+                : error.message ? <Error/> : <Loader/>
+            }
         </div>
     );
 };

@@ -11,15 +11,11 @@ const WeatherPage = ({getCity}) => {
 
     return (
         <div className={style.container}>
-            <div className={style.search}>
-                <Search getCity={getCity}>
-                    <Link to='/current'>
-                        <GiMagnifyingGlass/>
-                    </Link>
-                </Search>
-
-
-            </div>
+            <Search getCity={getCity}>
+                <Link to='/current'>
+                    <GiMagnifyingGlass/>
+                </Link>
+            </Search>
             <div className={style.image}>
                 <img src={weatherIcon} alt=""/>
             </div>

@@ -10,20 +10,22 @@ import Search from "../../components/UI/Search/Search";
 import HomeLink from "../../components/UI/homeLink/HomeLink";
 import ButtonForModal from "../../components/UI/buttonForModal/ButtonForModal";
 import {GiMagnifyingGlass} from "react-icons/gi";
+import Error from "../Error/Error";
 
 const FourDaysWeather = ({currentCity, getCity, visible, setVisible}) => {
+    const [error, seError] = useState('')
     let type = "forecast?";
 
     const [weatherFiveDays, setWeatherFiveDays] = useState(() => {
-        fetchingWeather(currentCity, type).then(res => setWeatherFiveDays(res))
+        fetchingWeather(currentCity, type).then(res => setWeatherFiveDays(res)).catch(e => seError(e))
     });
 
     useEffect(() => {
-        fetchingWeather(currentCity, type).then(res => setWeatherFiveDays(res))
+        fetchingWeather(currentCity, type).then(res => setWeatherFiveDays(res)).catch(e => seError(e))
     }, [currentCity, type]);
     return (
         <div className={style.wrapper}>
-            {weatherFiveDays ?
+            {weatherFiveDays && !error.message?
                 <>
                     <HomeLink/>
                     <BookmarkCity/>
@@ -47,8 +49,8 @@ const FourDaysWeather = ({currentCity, getCity, visible, setVisible}) => {
                     </div>
 
                 </>
-                : <Loader/>}
-
+                : error.message ? <Error/> : <Loader/>
+            }
         </div>
     );
 };

@@ -1,0 +1,7 @@
+.container {
+  @apply text-center;
+
+  .homeLink > a, .homeLink > a > svg {
+    @apply inline-block static;
+  }
+}
