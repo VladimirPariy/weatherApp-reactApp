@@ -13,21 +13,20 @@ import {GiMagnifyingGlass} from "react-icons/gi";
 import Error from "../Error/Error";
 
 const CurrentWeather = ({currentCity, getCity, visible, setVisible}) => {
-    const [error, seError] = useState('')
-
     let type = "weather?";
 
+    const [error, setError] = useState('')
     const [currentWeather, setCurrentWeather] = useState(() => {
-        fetchingWeather(currentCity, type).then(res => setCurrentWeather(res)).catch(e => seError(e))
+        fetchingWeather(currentCity, type).then(res => setCurrentWeather(res)).catch(e => setError(e))
     });
 
     useEffect(() => {
-        fetchingWeather(currentCity, type).then(res => setCurrentWeather(res)).catch(e => seError(e))
+        fetchingWeather(currentCity, type).then(res => setCurrentWeather(res)).catch(e => setError(e))
     }, [currentCity, type])
 
     return (
         <div className={style.wrapper}>
-            {currentWeather && !error.message ?
+            {currentWeather && !error.message &&currentCity.toUpperCase() === currentWeather.name.toUpperCase()?
                 <>
                     <HomeLink/>
 

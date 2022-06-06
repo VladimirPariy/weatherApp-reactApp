@@ -14,9 +14,7 @@ const Search = ({getCity, children}) => {
     }
     useEffect(()=> {
         inputFocus.current.focus()
-        console.log(1)
     })
-
 
     return (
         <div className={style.search} onKeyDown={(e) => {

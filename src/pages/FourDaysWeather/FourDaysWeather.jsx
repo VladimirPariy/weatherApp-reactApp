@@ -25,7 +25,7 @@ const FourDaysWeather = ({currentCity, getCity, visible, setVisible}) => {
     }, [currentCity, type]);
     return (
         <div className={style.wrapper}>
-            {weatherFiveDays && !error.message?
+            {weatherFiveDays && !error.message &&currentCity.toUpperCase() === weatherFiveDays.city.name.toUpperCase()?
                 <>
                     <HomeLink/>
                     <BookmarkCity/>

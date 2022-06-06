@@ -27,7 +27,7 @@ const WeatherToday = ({currentCity, getCity, visible, setVisible}) => {
 
     return (
         <div className={style.wrapper}>
-            {weatherToday && !error.message ?
+            {weatherToday && !error.message &&currentCity.toUpperCase() === weatherToday.city.name.toUpperCase()?
                 <>
                     <HomeLink/>
 
