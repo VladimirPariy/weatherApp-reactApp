@@ -5,11 +5,10 @@ import Nav from "./components/UI/Navbar/Nav";
 
 
 const App = () => {
-    const [currentCity, setCurrentCity] = useState(()=>'Kyiv')
+    const [currentCity, setCurrentCity] = useState('')
     const [modal, setModal] = useState(false)
 
     useEffect(() => {
-        setCurrentCity(currentCity)
         setModal(false)
     }, [currentCity])
 

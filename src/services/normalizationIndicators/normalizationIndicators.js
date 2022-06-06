@@ -1,8 +1,6 @@
 export const sunTime = (sunTime) => {
     const sun = new Date(sunTime * 1000)
-    const hour = sun.getHours(),
-        minute = sun.getMinutes();
-    return `${hour}:${minute}`;
+    return sun.toString().slice(16, 21)
 }
 
 export const roundNumber = (num) => {

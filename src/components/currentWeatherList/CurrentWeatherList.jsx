@@ -27,7 +27,7 @@ const CurrentWeatherList = ({currentWeather}) => {
         des = descriptionReplace(description),
         windDir = windDirection(deg),
         windSpeed = roundWindSpeed(speed);
-
+    console.log(sunriseTime)
     return (
         <div className={style.wrapper}>
 
