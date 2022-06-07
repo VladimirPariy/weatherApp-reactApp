@@ -1,5 +1,6 @@
-export const sunTime = (sunTime) => {
-    const sun = new Date(sunTime * 1000)
+export const sunTime = (sunTime, timezone) => {
+    const localTZ = new Date().getTimezoneOffset() * 60
+    const sun = new Date((sunTime + localTZ + timezone) * 1000)
     return sun.toString().slice(16, 21)
 }
 

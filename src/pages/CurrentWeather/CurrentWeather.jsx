@@ -15,10 +15,8 @@ import Error from "../Error/Error";
 const CurrentWeather = ({currentCity, getCity, visible, setVisible}) => {
     let type = "weather?";
 
-    const [error, setError] = useState('')
-    const [currentWeather, setCurrentWeather] = useState(() => {
-        fetchingWeather(currentCity, type).then(res => setCurrentWeather(res)).catch(e => setError(e))
-    });
+    const [error, setError] = useState('');
+    const [currentWeather, setCurrentWeather] = useState('');
 
     useEffect(() => {
         fetchingWeather(currentCity, type).then(res => setCurrentWeather(res)).catch(e => setError(e))
@@ -26,7 +24,7 @@ const CurrentWeather = ({currentCity, getCity, visible, setVisible}) => {
 
     return (
         <div className={style.wrapper}>
-            {currentWeather && !error.message &&currentCity.toUpperCase() === currentWeather.name.toUpperCase()?
+            {currentWeather && !error.message && currentCity.toUpperCase() === currentWeather.name.toUpperCase() ?
                 <>
                     <HomeLink/>
 

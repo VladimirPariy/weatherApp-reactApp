@@ -7,7 +7,7 @@
         .container {
           @apply inline-flex justify-between items-center w-11/12 ml-1;
           .dayOfTheWeek {
-            @apply w-[85px]
+            @apply w-20;
           }
 
           .icon {
@@ -19,9 +19,6 @@
               @apply pl-2;
             }
 
-            .temp__max {
-
-            }
           }
         }
       }
@@ -30,17 +27,15 @@
         @apply inline-block text-2xl;
 
         .elemIcon {
-          @apply pt-[2px] pb-[3px];
-          &:first-child{
-            @apply pt-[1px] pb-0;
-          }
+          @apply pt-0.5 pb-0.5;
+
         }
       }
 
       .wrapperElem {
         @apply w-10/12 inline-block pl-10 pt-2 ;
         .containerForElem {
-          @apply flex flex-col text-[18px] bg-slate-600 text-center font-normal;
+          @apply flex flex-col bg-slate-600 text-center font-normal;
           .time {
             @apply text-cyan-200 pb-2;
           }

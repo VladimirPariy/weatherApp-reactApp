@@ -14,6 +14,7 @@ const CurrentWeatherList = ({currentWeather}) => {
 
     const {
         visibility,
+        timezone,
         sys: {sunrise, sunset},
         main: {humidity, pressure, temp},
         wind: {speed, deg},
@@ -22,7 +23,7 @@ const CurrentWeatherList = ({currentWeather}) => {
 
     const weatherIcon = `http://openweathermap.org/img/wn/${icon}@2x.png`,
         temperature = roundNumber(temp),
-        sunriseTime = sunTime(sunrise), sunsetTime = sunTime(sunset),
+        sunriseTime = sunTime(sunrise, timezone), sunsetTime = sunTime(sunset, timezone),
         visibilityDistance = normalizationVisibility(visibility),
         des = descriptionReplace(description),
         windDir = windDirection(deg),

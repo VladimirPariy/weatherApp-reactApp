@@ -1,11 +1,12 @@
-.search{
-  @apply relative w-[236px];
-  input{
+.search {
+  @apply relative;
+  input {
     @apply rounded-2xl w-full h-10 p-4 mb-4 text-slate-800 font-bold placeholder-slate-300 focus:outline-slate-800 placeholder:font-normal;
   }
+
   button {
-    @apply  absolute right-0.5 top-1.5 ;
-    svg{
+    @apply absolute right-0.5 top-1.5 ;
+    svg {
       @apply w-10 h-7 text-gray-700 ;
     }
   }
