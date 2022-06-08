@@ -1,8 +1,8 @@
 import React from 'react';
-import style from "./Nav.module.scss"
+import style from "./Navbar.module.scss"
 import {NavLink} from "react-router-dom";
 
-const Nav = () => {
+const Navbar = () => {
     const getClass = ({isActive}) => isActive ? style.active : ""
 
     return (
@@ -28,4 +28,4 @@ const Nav = () => {
     );
 };
 
-export default Nav;
+export default Navbar;

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebResourcesPaths">
+    <contentEntries>
+      <entry url="file://$PROJECT_DIR$">
+        <entryData>
+          <resourceRoots>
+            <path value="file://$PROJECT_DIR$/src/pages/CurrentWeatherPage" />
+            <path value="file://$PROJECT_DIR$/src/pages/ErrorPage" />
+            <path value="file://$PROJECT_DIR$/src/pages/WeatherPage" />
+            <path value="file://$PROJECT_DIR$/src/components/UI/ButtonForCallingModal" />
+            <path value="file://$PROJECT_DIR$/src/components/UI/homeLink" />
+            <path value="file://$PROJECT_DIR$/src/components/UI/buttonForCallingModal" />
+            <path value="file://$PROJECT_DIR$/src/components/UI/loader" />
+            <path value="file://$PROJECT_DIR$/src/components/UI/modal" />
+            <path value="file://$PROJECT_DIR$/src/components/UI/navbar" />
+            <path value="file://$PROJECT_DIR$/src/components/UI/Search" />
+            <path value="file://$PROJECT_DIR$/src/components/AppRouter" />
+            <path value="file://$PROJECT_DIR$/src/components/CurrentWeatherItem" />
+            <path value="file://$PROJECT_DIR$/src/pages/WeatherTodayPage" />
+            <path value="file://$PROJECT_DIR$/src/components/UI/weatherPageHeader" />
+            <path value="file://$PROJECT_DIR$/src/components/todayWeatherList" />
+            <path value="file://$PROJECT_DIR$/src/Assets" />
+            <path value="file://$PROJECT_DIR$/src/pages/FourDaysWeatherPage" />
+            <path value="file://$PROJECT_DIR$/src/pages" />
+            <path value="file://$PROJECT_DIR$/src/hooks" />
+            <path value="file://$PROJECT_DIR$/src/components/fourDaysWeatherList" />
+            <path value="file://$PROJECT_DIR$/src/services" />
+          </resourceRoots>
+        </entryData>
+      </entry>
+    </contentEntries>
+  </component>
+</project>

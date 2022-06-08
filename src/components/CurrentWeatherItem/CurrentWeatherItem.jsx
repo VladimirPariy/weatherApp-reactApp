@@ -1,16 +1,16 @@
 import React from 'react';
-import style from "./CurrentWeatherList.module.scss"
+import style from "./CurrentWeatherItem.module.scss"
 import {
-    descriptionReplace,
-    normalizationVisibility,
-    roundNumber,
-    roundWindSpeed,
-    sunTime,
-    windDirection
-} from "../../services/normalizationIndicators/normalizationIndicators";
+    replacingFirstLetterDescription,
+    getRoundingNumberToInt,
+    getRoundingNumToFloat,
+    getTimeInString,
+    getWindDirection,
+    getNormalizationVisibility
+} from "../../services/normalizationIndicators";
 
 
-const CurrentWeatherList = ({currentWeather}) => {
+const CurrentWeatherItem = ({currentWeather}) => {
 
     const {
         visibility,
@@ -22,12 +22,13 @@ const CurrentWeatherList = ({currentWeather}) => {
     } = currentWeather
 
     const weatherIcon = `http://openweathermap.org/img/wn/${icon}@2x.png`,
-        temperature = roundNumber(temp),
-        sunriseTime = sunTime(sunrise, timezone), sunsetTime = sunTime(sunset, timezone),
-        visibilityDistance = normalizationVisibility(visibility),
-        des = descriptionReplace(description),
-        windDir = windDirection(deg),
-        windSpeed = roundWindSpeed(speed);
+        temperature = getRoundingNumberToInt(temp),
+        sunriseTime = getTimeInString(sunrise, timezone),
+        sunsetTime = getTimeInString(sunset, timezone),
+        visibilityDistance = getNormalizationVisibility(visibility),
+        des = replacingFirstLetterDescription(description),
+        windDir = getWindDirection(deg),
+        windSpeed = getRoundingNumToFloat(speed);
 
     return (
         <div className={style.wrapper}>
@@ -60,4 +61,4 @@ const CurrentWeatherList = ({currentWeather}) => {
     );
 };
 
-export default CurrentWeatherList;
+export default CurrentWeatherItem;

@@ -1,20 +1,20 @@
 import React from 'react';
 import {Route, Routes} from "react-router-dom";
-import WeatherPage from "../../pages/WeatherPage/WeatherPage";
-import CurrentWeather from "../../pages/CurrentWeather/CurrentWeather";
-import WeatherToday from "../../pages/WeatherToday/WeatherToday";
-import FourDaysWeather from "../../pages/FourDaysWeather/FourDaysWeather";
+import HomePage from "../../pages/WeatherPage/HomePage";
+import CurrentWeatherPage from "../../pages/CurrentWeatherPage/CurrentWeatherPage";
+import WeatherTodayPage from "../../pages/WeatherTodayPage/WeatherTodayPage";
+import FourDaysWeather from "../../pages/FourDaysWeatherPage/FourDaysWeatherPage";
 
-const AppRouter = ({ ...props}) => {
+const AppRouter = ({...props}) => {
     return (
         <Routes>
-            <Route path="/" element={<WeatherPage getCity={props.getCity}/>}/>
-            <Route path="current" element={<CurrentWeather {...props}/>}/>
-            <Route path="today" element={<WeatherToday {...props}/>}/>
+            <Route path="/" element={<HomePage setCurrentCity={props.setCurrentCity}/>}/>
+            <Route path="current" element={<CurrentWeatherPage {...props}/>}/>
+            <Route path="today" element={<WeatherTodayPage {...props}/>}/>
             <Route path="fourdays" element={<FourDaysWeather {...props}/>}/>
             <Route
                 path="*"
-                element={<WeatherPage to="/" />}
+                element={<HomePage to="/"/>}
                 replace
             />
         </Routes>

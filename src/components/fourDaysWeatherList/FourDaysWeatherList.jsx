@@ -1,33 +1,39 @@
 import React from 'react';
 import style from './FourDaysWeatherList.module.scss'
-import {selectionFourDaysWeather} from "../../services/selectionWeather/selectionWeather";
+import "./../../../node_modules/slick-carousel/slick/slick.css";
+import "./../../../node_modules/slick-carousel/slick/slick-theme.css";
 import {
-    determRepeatedWeather,
-    getDayOfTheWeek, getMinMaxDayTemp,
-    normalizationWeatherArrIndic,
-    sortedFourDaysWeather
-} from "../../services/normalizationIndicators/normalizationIndicators";
+    selectionFourDaysWeather,
+} from "../../services/selectionWeather";
 import {FaTemperatureHigh, FaWind} from "react-icons/fa";
 import {MdOutlineWaterDrop} from "react-icons/md";
 import {HiOutlineEye} from "react-icons/hi";
 import {GiBottomRight3DArrow} from "react-icons/gi";
 import {BsCloudSun} from "react-icons/bs";
 import Slider from "react-slick";
-import "./../../../node_modules/slick-carousel/slick/slick.css";
-import "./../../../node_modules/slick-carousel/slick/slick-theme.css";
+import {
+    determinationRepeatedWeather,
+    getDayOfTheWeek,
+    getMinMaxDayTemp,
+    normalizationWeatherArrIndic, normalizeTimeToTimezone,
+    sortedFourDaysWeather
+} from "../../services/normalizationIndicators";
 
 
 const FourDaysWeatherList = (props) => {
-    const weatherFourDays = normalizationWeatherArrIndic(selectionFourDaysWeather(Object.values(props)));
-    const sortedWeatherFourDays = Object.values(sortedFourDaysWeather(weatherFourDays))
+    const timeZone = props.city.timezone
+
+    const weatherFourDays = selectionFourDaysWeather(props.list, timeZone),
+        normalizeWeatherFourDays = normalizationWeatherArrIndic(weatherFourDays, timeZone),
+        sortedWeatherFourDays = Object.values(sortedFourDaysWeather(normalizeWeatherFourDays));
 
     return (
         <div className={style.wrapper}>
             {sortedWeatherFourDays.map(item => {
 
-                const dayNum = new Date(item[0].dt * 1000).getDay()
+                const dayOfTheWeek = getDayOfTheWeek(normalizeTimeToTimezone(item[0].dt, timeZone).getDay())
                 const minMaxTempToDay = getMinMaxDayTemp(item)
-                const repeatedWeatherIcon = determRepeatedWeather(item)
+                const repeatedWeatherIcon = determinationRepeatedWeather(item)
                 const settings = {
                     infinite: false,
                     speed: 500,
@@ -40,7 +46,7 @@ const FourDaysWeatherList = (props) => {
                         <details>
                             <summary>
                                 <div className={style.container}>
-                                    <span className={style.dayOfTheWeek}>{getDayOfTheWeek(dayNum)}</span>
+                                    <span className={style.dayOfTheWeek}>{dayOfTheWeek}</span>
                                     <img className={style.icon} src={repeatedWeatherIcon} alt=""/>
                                     <span className={style.temp__minmax}>
                                         <span className={style.temp__max}>{minMaxTempToDay[0]}&deg; </span>
@@ -58,9 +64,9 @@ const FourDaysWeatherList = (props) => {
                             </ul>
                             <div className={style.wrapperElem}>
                                 <Slider {...settings}>
-                                {item.map(elem => {
-                                    return (
-                                        <div className={style.containerForElem} key={elem.dt}>
+                                    {item.map(elem => {
+                                        return (
+                                            <div className={style.containerForElem} key={elem.dt}>
                                                 <div className={style.time}>{elem.dt_txt.slice(11, 16)}</div>
                                                 <div className={style.temp}>{elem.main.temp}&deg;</div>
                                                 <div className={style.weather}>{elem.weather[0].main}</div>
@@ -69,9 +75,9 @@ const FourDaysWeatherList = (props) => {
                                                 <div className={style.humidity}>{elem.main.humidity} %</div>
                                                 <div className={style.visibility}>{elem.visibility}</div>
 
-                                        </div>
-                                    )
-                                })}
+                                            </div>
+                                        )
+                                    })}
                                 </Slider>
                             </div>
                         </details>

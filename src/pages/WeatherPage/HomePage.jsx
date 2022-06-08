@@ -1,22 +1,24 @@
 import React from 'react';
-import style from "./WeatherPage.module.scss";
+import style from "./HomePage.module.scss";
 import weatherIcon from "../../Assets/Icons/sivvus_weather_symbols_2.svg";
 import {Link, useNavigate} from "react-router-dom";
 import {GiMagnifyingGlass} from "react-icons/gi";
 import Search from "../../components/UI/Search/Search";
 
 
-const WeatherPage = ({getCity}) => {
+const HomePage = ({setCurrentCity}) => {
     let navigate = useNavigate();
-    const reLink = () => {
+
+    const relink = () => {
         navigate("/current", {replace: true});
     }
 
     return (
-        <div className={style.container} onKeyDown={(e) => {
-            if (e.key === 'Enter') reLink()
+        <div className={style.container}
+             onKeyDown={(e) => {
+            if (e.key === 'Enter') relink()
         }}>
-            <Search getCity={getCity} >
+            <Search setCurrentCity={setCurrentCity} >
                 <Link to='/current' >
                     <GiMagnifyingGlass/>
                 </Link>
@@ -33,4 +35,4 @@ const WeatherPage = ({getCity}) => {
     )
 };
 
-export default WeatherPage;
+export default HomePage;

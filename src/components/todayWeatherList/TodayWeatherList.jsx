@@ -1,12 +1,13 @@
 import React from 'react';
-import {selectionWeather} from "../../services/selectionWeather/selectionWeather";
-import {normalizationWeatherArrIndic} from "../../services/normalizationIndicators/normalizationIndicators";
-import style from "./TodayWeatherList.module.scss"
+import style from './TodayWeatherList.module.scss'
+import {selectionWeather} from "../../services/selectionWeather";
+import {normalizationWeatherArrIndic} from "../../services/normalizationIndicators";
 
+const TodayWeatherList = ({city, list}) => {
+    const timeZone = city.timezone
 
-const TodayWeatherList = (props) => {
+    const weatherToday = normalizationWeatherArrIndic(selectionWeather(list, timeZone), timeZone);
 
-    const weatherToday = normalizationWeatherArrIndic(selectionWeather(Object.values(props)));
     return (
         <>
             {weatherToday.map((item) => {

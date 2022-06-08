@@ -3,13 +3,13 @@ import style from "./Search.module.scss";
 import SearchButton from "./searchButton/SearchButton";
 import SearchInput from "./searchInput/SearchInput";
 
-const Search = ({getCity, children}) => {
+const Search = ({setCurrentCity, children}) => {
 
     const [search, setSearch] = useState('')
     const inputFocus = useRef(null)
 
     const searchCity = () => {
-        getCity(search)
+        setCurrentCity(search)
         setSearch('')
     }
     useEffect(()=> {
@@ -17,7 +17,8 @@ const Search = ({getCity, children}) => {
     })
 
     return (
-        <div className={style.search} onKeyDown={(e) => {
+        <div className={style.search}
+             onKeyDown={(e) => {
             if (e.key === 'Enter') searchCity()
         }}>
             <SearchInput

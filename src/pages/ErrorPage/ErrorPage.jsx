@@ -1,8 +1,8 @@
 import React from 'react';
 import HomeLink from "../../components/UI/homeLink/HomeLink";
-import style from "./Error.module.scss"
+import style from "./ErrorPage.module.scss"
 
-const Error = () => {
+const ErrorPage = () => {
 
     return (
         <div>
@@ -11,4 +11,4 @@ const Error = () => {
     );
 };
 
-export default Error;
+export default ErrorPage;

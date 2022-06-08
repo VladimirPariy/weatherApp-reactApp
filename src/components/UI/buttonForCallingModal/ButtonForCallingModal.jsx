@@ -1,7 +1,7 @@
 import React from 'react';
-import style from "./ButtonForModal.module.scss";
+import style from "./ButtonForCallingModal.module.scss";
 
-const ButtonForModal = ({children, setVisible}) => {
+const ButtonForCallingModal = ({children, setVisible}) => {
     return (
         <button className={style.buttonForModal} onClick={() => setVisible(true)}>
             {children}
@@ -9,4 +9,4 @@ const ButtonForModal = ({children, setVisible}) => {
     );
 };
 
-export default ButtonForModal;
+export default ButtonForCallingModal;
