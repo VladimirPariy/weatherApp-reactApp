@@ -8,7 +8,7 @@ import FourDaysWeather from "../../pages/FourDaysWeatherPage/FourDaysWeatherPage
 const AppRouter = ({...props}) => {
     return (
         <Routes>
-            <Route path="/" element={<HomePage setCurrentCity={props.setCurrentCity} data={props.data}/>}/>
+            <Route path="/" element={<HomePage setCurrentCity={props.setCurrentCity}/>}/>
             <Route path="current" element={<CurrentWeatherPage {...props}/>}/>
             <Route path="today" element={<WeatherTodayPage {...props}/>}/>
             <Route path="fourdays" element={<FourDaysWeather {...props}/>}/>

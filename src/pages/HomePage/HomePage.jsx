@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React from "react";
 import style from "./HomePage.module.scss";
 import weatherIcon from "../../Assets/Icons/sivvus_weather_symbols_2.svg";
 import {Link, useNavigate} from "react-router-dom";
@@ -7,19 +7,14 @@ import Search from "../../components/UI/Search/Search";
 import {useLocalStorage} from "../../hooks/useLocalStorage";
 import LocalStorageItem from "../../components/UI/localStorageItem/LocalStorageItem";
 
-
-const HomePage = ({setCurrentCity, data}) => {
+const HomePage = ({setCurrentCity}) => {
+    const [cityList, setCityList] = useLocalStorage('', 'city')
 
     const navigate = useNavigate();
     const relink = () => {
-        navigate("/current", {replace: true});
+        navigate('/current', {replace: true});
     }
 
-    const [cityList, setCityList] = useLocalStorage('', 'data')
-    useEffect(() => {
-        setCityList(data)
-    }, [cityList, data])
-    console.log(cityList)
     return (
         <div className={style.container}
              onKeyDown={(e) => {
@@ -30,10 +25,11 @@ const HomePage = ({setCurrentCity, data}) => {
                     <GiMagnifyingGlass/>
                 </Link>
             </Search>
-            {cityList && cityList.length !== 0
+
+            { cityList.length !== 0
                 ?
                 <div className={style.localStorageContainer}>
-                    <LocalStorageItem localStorageItem={cityList}/>
+                    <LocalStorageItem cityList={cityList} setCityList={setCityList}/>
                 </div>
                 :
                 <>
