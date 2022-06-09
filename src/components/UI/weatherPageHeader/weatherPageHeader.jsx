@@ -28,7 +28,8 @@ const WeatherPageHeader = ({visible, setVisible, setCurrentCity, cityName, count
                 </span>
             </ButtonForCallingModal>
 
-            <BookmarkCity/>
+
+            <BookmarkCity cityName={cityName}/>
         </>
     );
 };

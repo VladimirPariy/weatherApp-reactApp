@@ -1,6 +1,6 @@
 export const normalizeTimeToTimezone = (dateStamp, timezone) => {
-    const localTimeZone = new Date().getTimezoneOffset() * 60
-    return new Date((dateStamp + localTimeZone + timezone) * 1000)
+    const localTimeZone = new Date().getTimezoneOffset() * 60;
+    return new Date((dateStamp + timezone + localTimeZone) * 1000)
 };
 
 export const getTimeInString = (dateStamp, timezone) => {
@@ -70,7 +70,7 @@ export const getWindDirection = (deg) => {
 }
 
 export const getUrlIcon = (icon) => {
-    return `http://openweathermap.org/img/wn/${icon}@2x.png`
+    return `https://openweathermap.org/img/wn/${icon}@2x.png`
 }
 
 export const replacingFirstLetterDescription = (description) => {
@@ -143,10 +143,11 @@ export const determinationRepeatedWeather = (weatherArr) => {
             weather = item[0]
         }
     })
+
     return weather;
 }
 
-export const sortedFourDaysWeather = (weatherArr, timezone) => {
+export const sortedFourDaysWeather = (weatherArr) => {
     return weatherArr.reduce((acc, rec) => {
         const date = rec.dt_txt.slice(0, 10)
         if (Object.keys(acc).length !== 0) {

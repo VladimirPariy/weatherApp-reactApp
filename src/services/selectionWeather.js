@@ -14,7 +14,6 @@ export const selectionFourDaysWeather = (weather, timezone) => {
 
     const dateToday = getDayInString(weather[0].dt, timezone),
         lastDate = getDayInString(weather[weather.length - 1].dt, timezone);
-
     const fullWeather = weather.filter(item => {
         const date = getDayInString(item.dt, timezone)
         return !(date === dateToday);
@@ -26,7 +25,6 @@ export const selectionFourDaysWeather = (weather, timezone) => {
             return !(date === dateToday || date === lastDate);
         });
     }
-
     return fullWeather;
 }
 

@@ -1,6 +1,6 @@
-.cityItem {
+.item {
   @apply w-40 flex bg-slate-500 m-3 justify-center h-24 items-center relative cursor-pointer shadow-lg p-3;
-  .iconItem {
+  .removeIconItem {
     @apply absolute top-2 right-2 text-2xl;
   }
 

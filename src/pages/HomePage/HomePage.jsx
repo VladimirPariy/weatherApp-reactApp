@@ -5,10 +5,10 @@ import {Link, useNavigate} from "react-router-dom";
 import {GiMagnifyingGlass} from "react-icons/gi";
 import Search from "../../components/UI/Search/Search";
 import {useLocalStorage} from "../../hooks/useLocalStorage";
-import LocalStorageItem from "../../components/UI/localStorageItem/LocalStorageItem";
+import ItemFromLocalStorage from "../../components/UI/itemFromLocalStorage/ItemFromLocalStorage";
 
 const HomePage = ({setCurrentCity}) => {
-    const [cityList, setCityList] = useLocalStorage('', 'city')
+    const [cityList, setCityList] = useLocalStorage('city', [])
 
     const navigate = useNavigate();
     const relink = () => {
@@ -26,13 +26,11 @@ const HomePage = ({setCurrentCity}) => {
                 </Link>
             </Search>
 
-            { cityList.length !== 0
-                ?
+            {(cityList.length > 0) ?
                 <div className={style.localStorageContainer}>
-                    <LocalStorageItem cityList={cityList} setCityList={setCityList}/>
+                    <ItemFromLocalStorage cityList={cityList} setCityList={setCityList}/>
                 </div>
-                :
-                <>
+                : <>
                     <div className={style.image}>
                         <img src={weatherIcon} alt=""/>
                     </div>

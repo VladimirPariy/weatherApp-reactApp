@@ -22,7 +22,6 @@
             <path value="file://$PROJECT_DIR$/src/components/todayWeatherList" />
             <path value="file://$PROJECT_DIR$/src/Assets" />
             <path value="file://$PROJECT_DIR$/src/pages/FourDaysWeatherPage" />
-            <path value="file://$PROJECT_DIR$/src/pages" />
             <path value="file://$PROJECT_DIR$/src/hooks" />
             <path value="file://$PROJECT_DIR$/src/components/fourDaysWeatherList" />
             <path value="file://$PROJECT_DIR$/src/services" />

@@ -1,0 +1,21 @@
+.elemIcons {
+  @apply inline-block text-xl;
+
+  .elemIcon {
+    @apply pt-1 pb-1;
+
+  }
+}
+.wrapperElem {
+  @apply w-10/12 inline-block pl-10 pr-2 pt-2 ;
+  .containerForElem {
+    @apply flex flex-col bg-slate-400 text-center font-normal;
+    .time {
+      @apply text-amber-900 pb-2;
+    }
+
+    .temp {
+      @apply mt-1;
+    }
+  }
+}

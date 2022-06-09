@@ -1,17 +1,17 @@
 import React from 'react';
-import style from "./LocalStorageItem.module.scss";
+import style from "./itemFromLocalStorage.module.scss";
 import {TiDeleteOutline} from "react-icons/ti";
 
-const LocalStorageItem = ({cityList, setCityList}) => {
+const ItemFromLocalStorage = ({cityList, setCityList}) => {
 
     const removeLocalStorageItem = (target) => {
         setCityList(cityList.filter(item => target.id !== item.id))
-        localStorage.setItem('data', cityList)
+        localStorage.setItem('city', cityList)
     }
 
     return cityList.map(item =>
-        <div className={style.cityItem} key={item.id}>
-            <button className={style.iconItem}
+        <div className={style.item} key={item.id}>
+            <button className={style.removeIconItem}
                     onClick={() => removeLocalStorageItem(item)}>
                 <TiDeleteOutline/>
             </button>
@@ -22,4 +22,4 @@ const LocalStorageItem = ({cityList, setCityList}) => {
 
 };
 
-export default LocalStorageItem;
+export default ItemFromLocalStorage;
