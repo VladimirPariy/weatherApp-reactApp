@@ -17,14 +17,16 @@ import FourDaysWeatherItem from "./fourDaysWeatherItem/FourDaysWeatherItem";
 const FourDaysWeatherList = (props) => {
     const timeZone = props.city.timezone
 
-    const weatherFourDays = selectionFourDaysWeather(props.list, timeZone),
-        normalizeWeatherFourDays = normalizationWeatherArrIndic(weatherFourDays, timeZone),
-        sortedWeatherFourDays = Object.values(sortedFourDaysWeather(normalizeWeatherFourDays));
+    const normalizeWeatherFourDays = normalizationWeatherArrIndic(props.list, timeZone);
+    const sortedWeatherFourDays = Object.values(sortedFourDaysWeather(normalizeWeatherFourDays));
+
+    const weatherWithoutLastFullArray = sortedWeatherFourDays.at(-1).length < 8 ? sortedWeatherFourDays.slice(0, -1) : sortedWeatherFourDays
+
     return (
         <div className={style.wrapper}>
-            {sortedWeatherFourDays.map(item => {
+            {weatherWithoutLastFullArray.map(item => {
+                const dayOfTheWeek = getDayOfTheWeek(new Date(normalizeTimeToTimezone(item[0].dt, timeZone)).getDay())
 
-                const dayOfTheWeek = getDayOfTheWeek(normalizeTimeToTimezone(item[0].dt, timeZone).getDay())
                 const minMaxTempToDay = getMinMaxDayTemp(item)
                 const repeatedWeatherIcon = determinationRepeatedWeather(item)
 

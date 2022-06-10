@@ -1,10 +1,12 @@
 export const normalizeTimeToTimezone = (dateStamp, timezone) => {
-    const localTimeZone = new Date().getTimezoneOffset() * 60;
-    return new Date((dateStamp + timezone + localTimeZone) * 1000)
+    console.log()
+     return +(new Date( (dateStamp*1000)+(1000 * timezone)+(new Date().getTimezoneOffset() * 60000)))
+
 };
 
 export const getTimeInString = (dateStamp, timezone) => {
-    const normalizeDateStampToTimezone = normalizeTimeToTimezone(dateStamp, timezone)
+    const normalizeDateStampToTimezone = new Date(normalizeTimeToTimezone(dateStamp, timezone))
+
     let hours = normalizeDateStampToTimezone.getHours().toString(),
         minutes = normalizeDateStampToTimezone.getMinutes().toString();
 
@@ -19,12 +21,14 @@ export const getTimeInString = (dateStamp, timezone) => {
 }
 
 export const getDayInString = (dateStamp, timezone) => {
-    const normalizeDateStampToTimezone = normalizeTimeToTimezone(dateStamp, timezone)
-    const year = normalizeDateStampToTimezone.getFullYear();
+    const normalizeDateStampToTimezone = new Date(normalizeTimeToTimezone(dateStamp, timezone))
 
+    // console.log(normalizeDateStampToTimezone)
+
+    const year = +normalizeDateStampToTimezone.getFullYear();
 
     let month = (normalizeDateStampToTimezone.getMonth() + 1).toString(),
-        date = normalizeDateStampToTimezone.getDate().toString();
+        date = +normalizeDateStampToTimezone.getDate().toString();
 
     if(date.length<2){
         date = `0${date}`
