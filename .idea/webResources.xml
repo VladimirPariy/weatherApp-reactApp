@@ -25,6 +25,17 @@
             <path value="file://$PROJECT_DIR$/src/hooks" />
             <path value="file://$PROJECT_DIR$/src/components/fourDaysWeatherList" />
             <path value="file://$PROJECT_DIR$/src/services" />
+            <path value="file://$PROJECT_DIR$/src/components/currentWeatherItem" />
+            <path value="file://$PROJECT_DIR$/src/components/fourDaysWeatherList/fiveDaysWeatherItem" />
+            <path value="file://$PROJECT_DIR$/src/components/UI/bookmarkCity" />
+            <path value="file://$PROJECT_DIR$/src/components/UI/itemFromLocalStorage" />
+            <path value="file://$PROJECT_DIR$/src/components/UI" />
+            <path value="file://$PROJECT_DIR$/src/components/fiveDaysWeatherList" />
+            <path value="file://$PROJECT_DIR$/src/components" />
+            <path value="file://$PROJECT_DIR$/src/pages/FiveDaysWeatherPage" />
+            <path value="file://$PROJECT_DIR$/src/pages/HomePage" />
+            <path value="file://$PROJECT_DIR$/src/pages" />
+            <path value="file://$PROJECT_DIR$/src/components/fiveDaysWeatherList/fiveDaysWeatherItem" />
           </resourceRoots>
         </entryData>
       </entry>

@@ -1,5 +1,5 @@
 import React from 'react';
-import style from './FourDaysWeatherItem.module.scss'
+import style from './FiveDaysWeatherItem.module.scss'
 import Slider from "react-slick";
 import {FaTemperatureHigh, FaWind} from "react-icons/fa";
 import {BsCloudSun} from "react-icons/bs";
@@ -8,7 +8,7 @@ import {MdOutlineWaterDrop} from "react-icons/md";
 import {HiOutlineEye} from "react-icons/hi";
 
 
-const FourDaysWeatherItem = ({item}) => {
+const FiveDaysWeatherItem = ({item}) => {
     const settings = {
         infinite: false,
         speed: 500,
@@ -47,4 +47,4 @@ const FourDaysWeatherItem = ({item}) => {
     )
 };
 
-export default FourDaysWeatherItem;
+export default FiveDaysWeatherItem;

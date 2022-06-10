@@ -1,8 +1,7 @@
 export const normalizeTimeToTimezone = (dateStamp, timezone) => {
-    console.log()
      return +(new Date( (dateStamp*1000)+(1000 * timezone)+(new Date().getTimezoneOffset() * 60000)))
-
 };
+
 
 export const getTimeInString = (dateStamp, timezone) => {
     const normalizeDateStampToTimezone = new Date(normalizeTimeToTimezone(dateStamp, timezone))
@@ -20,10 +19,9 @@ export const getTimeInString = (dateStamp, timezone) => {
     return `${hours}:${minutes}`
 }
 
+
 export const getDayInString = (dateStamp, timezone) => {
     const normalizeDateStampToTimezone = new Date(normalizeTimeToTimezone(dateStamp, timezone))
-
-    // console.log(normalizeDateStampToTimezone)
 
     const year = +normalizeDateStampToTimezone.getFullYear();
 
@@ -40,19 +38,23 @@ export const getDayInString = (dateStamp, timezone) => {
     return `${year}-${month}-${date}`
 }
 
+
 export const getDateTxt = (item, timezone)=> {
     const day = getDayInString(item.dt, timezone),
         time = getTimeInString(item.dt, timezone);
     return `${day} ${time}`
 }
 
+
 export const getRoundingNumberToInt = (num) => {
     return Math.round(num)
 }
 
+
 export const getRoundingNumToFloat = (num) => {
     return (Math.round(num * 10)) / 10
 }
+
 
 export const getNormalizationVisibility = (distance) => {
     if (distance > 1000) {
@@ -61,6 +63,7 @@ export const getNormalizationVisibility = (distance) => {
     }
     return `${distance} m`
 }
+
 
 export const getWindDirection = (deg) => {
     if (deg >= 157.6 && deg <= 202.5) return 'S'
@@ -73,13 +76,16 @@ export const getWindDirection = (deg) => {
     return 'SE'
 }
 
+
 export const getUrlIcon = (icon) => {
     return `https://openweathermap.org/img/wn/${icon}@2x.png`
 }
 
+
 export const replacingFirstLetterDescription = (description) => {
     return description[0].toUpperCase() + description.slice(1);
 }
+
 
 export const normalizationWeatherArrIndic = (arr, timezone) => {
     return arr.map((item) => {
@@ -113,6 +119,7 @@ export const getDayOfTheWeek = (num) => {
     return dayArr[num]
 }
 
+
 export const getMinMaxDayTemp = (dayWeatherArr) => {
     let maxTemp,
         minTemp;
@@ -127,6 +134,7 @@ export const getMinMaxDayTemp = (dayWeatherArr) => {
     })
     return [maxTemp, minTemp]
 }
+
 
 export const determinationRepeatedWeather = (weatherArr) => {
     const weatherDes = weatherArr.reduce((acc, rec) => {
@@ -151,7 +159,8 @@ export const determinationRepeatedWeather = (weatherArr) => {
     return weather;
 }
 
-export const sortedFourDaysWeather = (weatherArr) => {
+
+export const sortedFiveDaysWeather = (weatherArr) => {
     return weatherArr.reduce((acc, rec) => {
         const date = rec.dt_txt.slice(0, 10)
         if (Object.keys(acc).length !== 0) {

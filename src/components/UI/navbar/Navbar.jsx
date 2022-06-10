@@ -14,13 +14,8 @@ const Navbar = () => {
                     </NavLink>
                 </div>
                 <div className={style.item}>
-                    <NavLink to="/today" className={getClass}>
-                        Today
-                    </NavLink>
-                </div>
-                <div className={style.item}>
-                    <NavLink to="/fourdays" className={getClass}>
-                        4 days
+                    <NavLink to="/fivedays" className={getClass}>
+                        5 days
                     </NavLink>
                 </div>
             </div>

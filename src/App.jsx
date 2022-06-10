@@ -15,7 +15,10 @@ const App = () => {
         <div className={style.wrapper}>
             <div className={style.container}>
                 <Navbar/>
-                <AppRouter currentCity={currentCity} setCurrentCity={setCurrentCity} visible={modal} setVisible={setModal}/>
+                <AppRouter currentCity={currentCity}
+                           setCurrentCity={setCurrentCity}
+                           visible={modal}
+                           setVisible={setModal}/>
             </div>
 
         </div>

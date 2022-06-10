@@ -1,24 +1,23 @@
 import React from 'react';
-import style from './FourDaysWeatherList.module.scss'
+import style from './FiveDaysWeatherList.module.scss'
 import "./../../../node_modules/slick-carousel/slick/slick.css";
 import "./../../../node_modules/slick-carousel/slick/slick-theme.css";
-import {selectionFourDaysWeather,} from "../../services/selectionWeather";
 import {
     determinationRepeatedWeather,
     getDayOfTheWeek,
     getMinMaxDayTemp,
     normalizationWeatherArrIndic,
     normalizeTimeToTimezone,
-    sortedFourDaysWeather
+    sortedFiveDaysWeather,
 } from "../../services/normalizationIndicators";
-import FourDaysWeatherItem from "./fourDaysWeatherItem/FourDaysWeatherItem";
+import FiveDaysWeatherItem from "./fiveDaysWeatherItem/FiveDaysWeatherItem";
 
 
-const FourDaysWeatherList = (props) => {
+const FiveDaysWeatherList = (props) => {
     const timeZone = props.city.timezone
 
     const normalizeWeatherFourDays = normalizationWeatherArrIndic(props.list, timeZone);
-    const sortedWeatherFourDays = Object.values(sortedFourDaysWeather(normalizeWeatherFourDays));
+    const sortedWeatherFourDays = Object.values(sortedFiveDaysWeather(normalizeWeatherFourDays));
 
     const weatherWithoutLastFullArray = sortedWeatherFourDays.at(-1).length < 8 ? sortedWeatherFourDays.slice(0, -1) : sortedWeatherFourDays
 
@@ -44,7 +43,7 @@ const FourDaysWeatherList = (props) => {
                                 </div>
                             </summary>
 
-                            <FourDaysWeatherItem item={item}/>
+                            <FiveDaysWeatherItem item={item}/>
                         </details>
                     </div>
                 )
@@ -54,4 +53,4 @@ const FourDaysWeatherList = (props) => {
     );
 };
 
-export default FourDaysWeatherList;
+export default FiveDaysWeatherList;

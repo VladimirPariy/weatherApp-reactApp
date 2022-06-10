@@ -21,7 +21,7 @@ const CurrentWeatherItem = ({currentWeather}) => {
         weather: [{icon, description}]
     } = currentWeather
 
-    const weatherIcon = `http://openweathermap.org/img/wn/${icon}@2x.png`,
+    const weatherIcon = `https://openweathermap.org/img/wn/${icon}@2x.png`,
         temperature = getRoundingNumberToInt(temp),
         sunriseTime = getTimeInString(sunrise, timezone),
         sunsetTime = getTimeInString(sunset, timezone),
