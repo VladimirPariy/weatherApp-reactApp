@@ -13,7 +13,7 @@ const FourDaysWeather = ({currentCity, setCurrentCity, visible, setVisible}) => 
 
     return (
         <div className={style.wrapper}>
-            {fourDaysWeather &&currentCity.toUpperCase() === fourDaysWeather.city.name.toUpperCase()?
+            {fourDaysWeather && currentCity.toUpperCase() === fourDaysWeather.city.name.toUpperCase() ?
                 <>
                     <WeatherPageHeader visible={visible}
                                        setVisible={setVisible}

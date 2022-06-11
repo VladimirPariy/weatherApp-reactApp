@@ -1,25 +1,27 @@
-.container{
+.container {
   @apply flex flex-col items-center p-7 w-full h-full;
-  .image{
+  .image {
     @apply w-36;
   }
+
   .text {
-    @apply text-center flex-grow pt-10;
+    @apply text-center flex-grow pt-14;
 
     :first-child {
-      @apply text-2xl pb-12;
+      @apply text-2xl pb-16;
 
       span {
-        @apply text-2xl text-amber-300 font-bold;
+        @apply text-3xl text-amber-300 font-bold;
       }
     }
 
     :last-child {
-      @apply text-base font-normal;
+      @apply text-xl font-normal;
     }
   }
-  .localStorageContainer{
-@apply flex flex-wrap justify-center;
+
+  .localStorageContainer {
+    @apply flex flex-wrap justify-center;
   }
 }
 

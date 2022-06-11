@@ -20,9 +20,7 @@
             <path value="file://$PROJECT_DIR$/src/pages/WeatherTodayPage" />
             <path value="file://$PROJECT_DIR$/src/components/UI/weatherPageHeader" />
             <path value="file://$PROJECT_DIR$/src/components/todayWeatherList" />
-            <path value="file://$PROJECT_DIR$/src/Assets" />
             <path value="file://$PROJECT_DIR$/src/pages/FourDaysWeatherPage" />
-            <path value="file://$PROJECT_DIR$/src/hooks" />
             <path value="file://$PROJECT_DIR$/src/components/fourDaysWeatherList" />
             <path value="file://$PROJECT_DIR$/src/services" />
             <path value="file://$PROJECT_DIR$/src/components/currentWeatherItem" />
@@ -34,7 +32,6 @@
             <path value="file://$PROJECT_DIR$/src/components" />
             <path value="file://$PROJECT_DIR$/src/pages/FiveDaysWeatherPage" />
             <path value="file://$PROJECT_DIR$/src/pages/HomePage" />
-            <path value="file://$PROJECT_DIR$/src/pages" />
             <path value="file://$PROJECT_DIR$/src/components/fiveDaysWeatherList/fiveDaysWeatherItem" />
           </resourceRoots>
         </entryData>

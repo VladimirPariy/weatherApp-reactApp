@@ -35,15 +35,15 @@ const CurrentWeatherItem = ({currentWeather}) => {
 
             <div className={style.weatherBlock}>
 
+                <div className={style.temp}>
+                    {temperature}
+                    <span className={style.cel}>&deg;</span>
+                </div>
                 <div className={style.iconWeather}>
                     <img src={weatherIcon} alt="icon"/>
                     <span>{des}</span>
                 </div>
 
-                <div className={style.temp}>
-                    {temperature}
-                    <span className={style.cel}>&deg;</span>
-                </div>
 
             </div>
 

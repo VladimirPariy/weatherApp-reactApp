@@ -9,21 +9,13 @@
     .country {
       @apply text-cyan-100 pl-3;
     }
-
-
-  }
-  .bookmark {
-    @apply absolute right-3 top-1;
-    svg {
-      @apply text-3xl;
-    }
   }
 
   .weatherBlock {
-    @apply flex flex-row-reverse w-full items-center justify-between my-8 ;
+    @apply flex  flex-wrap w-full items-center justify-between my-8 ;
 
     .iconWeather {
-      @apply flex flex-col items-center mx-4;
+      @apply flex flex-col items-center mx-3;
       img {
         @apply w-20 -mb-6 -mt-2;
       }
