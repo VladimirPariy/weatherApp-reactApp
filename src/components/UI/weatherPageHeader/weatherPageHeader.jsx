@@ -19,14 +19,15 @@ const WeatherPageHeader = ({visible, setVisible, setCurrentCity, cityName, count
                     <GiMagnifyingGlass/>
                 </Search>
             </Modal>
-
-            <ButtonForCallingModal setVisible={setVisible}>
-                <MdOutlineFmdGood/>
-                {cityName},
-                <span className={style.countryName}>
+            <div className={style.buttonForCallingModal}>
+                <ButtonForCallingModal setVisible={setVisible}>
+                    <MdOutlineFmdGood/>
+                    {cityName},
+                    <span className={style.countryName}>
                     {country}
                 </span>
-            </ButtonForCallingModal>
+                </ButtonForCallingModal>
+            </div>
 
 
             <BookmarkCity cityName={cityName}/>

@@ -9,27 +9,26 @@ import WeatherPageHeader from "../../components/UI/weatherPageHeader/weatherPage
 const CurrentWeatherPage = ({currentCity, setCurrentCity, visible, setVisible}) => {
 
     let type = "weather?";
-    const [currentWeather, error] = useFetchingWeather(currentCity, type)
+    const [currentWeather, error, isLoading] = useFetchingWeather(currentCity, type)
 
     return (
         <div className={style.wrapper}>
-            {currentWeather && currentCity.toUpperCase() === currentWeather.name.toUpperCase() ?
-                <>
-
-                    <WeatherPageHeader visible={visible}
-                                       setVisible={setVisible}
-                                       setCurrentCity={setCurrentCity}
-                                       cityName={currentWeather.name}
-                                       country={currentWeather.sys.country}
-                    />
-
-                    <div className={style.container}>
-                        <CurrentWeatherItem currentWeather={currentWeather}/>
-                    </div>
-                </>
+            {isLoading
+                ? <Loader/>
                 : error
                     ? <ErrorPage/>
-                    : <Loader/>
+                    : <>
+                        <WeatherPageHeader visible={visible}
+                                           setVisible={setVisible}
+                                           setCurrentCity={setCurrentCity}
+                                           cityName={currentWeather.name}
+                                           country={currentWeather.sys.country}
+                        />
+
+                        <div className={style.container}>
+                            <CurrentWeatherItem currentWeather={currentWeather}/>
+                        </div>
+                    </>
             }
         </div>
     );

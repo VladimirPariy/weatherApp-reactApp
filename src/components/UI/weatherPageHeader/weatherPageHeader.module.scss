@@ -1,3 +1,6 @@
-.countryName{
-  @apply text-cyan-200 pl-3;
+.buttonForCallingModal {
+  @apply mt-12;
+  .countryName {
+    @apply text-cyan-200 pl-3;
+  }
 }
