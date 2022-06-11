@@ -2,14 +2,14 @@
   @apply inline-block text-xl;
 
   .elemIcon {
-    @apply pt-1 pb-1;
+    @apply pt-1 pb-1 text-slate-800;
 
   }
 }
 .wrapperElem {
   @apply w-10/12 inline-block pl-10 pr-2 pt-2 ;
   .containerForElem {
-    @apply flex flex-col bg-slate-400 text-center font-normal;
+    @apply flex flex-col bg-slate-400 text-center font-semibold;
     .time {
       @apply text-amber-900 pb-2;
     }

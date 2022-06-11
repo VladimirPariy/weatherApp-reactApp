@@ -1,8 +1,8 @@
 .wrapper {
-  @apply w-full;
+  @apply w-full ;
   .item {
     details {
-      @apply bg-slate-400 my-3 px-4 rounded-xl  py-5 mx-3 text-gray-700;
+      @apply bg-slate-400 my-3 px-4 rounded-xl  py-5 mx-3 text-gray-700 shadow-2xl;
       summary {
         .container {
           @apply inline-flex justify-between items-center w-11/12 ml-1;

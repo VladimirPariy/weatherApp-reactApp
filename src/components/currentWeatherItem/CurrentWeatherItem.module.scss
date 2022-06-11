@@ -37,7 +37,7 @@
   .weatherList {
     @apply m-auto w-full;
     li {
-      @apply py-3 px-6 bg-slate-700 my-2 rounded-xl;
+      @apply py-3 px-6 bg-slate-400 my-2 rounded-xl shadow-lg text-gray-700;
     }
   }
 }

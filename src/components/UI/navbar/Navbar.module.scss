@@ -1,5 +1,5 @@
 nav{
-  @apply flex items-center flex-col  py-5 w-full h-full;
+  @apply flex items-center flex-col  py-5 w-full h-full shadow-lg rounded-xl;
   .list {
     @apply flex w-full justify-evenly ;
     .item {

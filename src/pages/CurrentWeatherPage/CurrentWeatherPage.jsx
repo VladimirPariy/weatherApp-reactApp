@@ -10,7 +10,7 @@ const CurrentWeatherPage = ({currentCity, setCurrentCity, visible, setVisible}) 
 
     let type = "weather?";
     const [currentWeather, error] = useFetchingWeather(currentCity, type)
-    console.log(currentWeather)
+
     return (
         <div className={style.wrapper}>
             {currentWeather && currentCity.toUpperCase() === currentWeather.name.toUpperCase() ?

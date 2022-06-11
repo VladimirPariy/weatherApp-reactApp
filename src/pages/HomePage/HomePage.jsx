@@ -28,7 +28,7 @@ const HomePage = ({setCurrentCity}) => {
 
             {(cityList.length > 0) ?
                 <div className={style.localStorageContainer}>
-                    <ItemFromLocalStorage cityList={cityList} setCityList={setCityList}/>
+                    <ItemFromLocalStorage cityList={cityList} setCityList={setCityList} setCurrentCity={setCurrentCity}/>
                 </div>
                 : <>
                     <div className={style.image}>
