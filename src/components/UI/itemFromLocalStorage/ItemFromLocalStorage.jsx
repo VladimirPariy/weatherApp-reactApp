@@ -11,7 +11,9 @@ const ItemFromLocalStorage = ({cityList, setCityList, setCurrentCity}) => {
     }
 
     const relinkByLSItem = (e) => {
+
         setCurrentCity(e.target.innerText)
+
     }
 
     return cityList.map(item =>
@@ -21,7 +23,7 @@ const ItemFromLocalStorage = ({cityList, setCityList, setCurrentCity}) => {
                 <TiDeleteOutline/>
             </button>
             <Link to='/current'>
-                <div className={style.item}  onClick={(e) => {
+                <div className={style.item} onClick={(e) => {
                     relinkByLSItem(e)
                 }}>
                     <div className={style.cityNameItem}>{item.city}</div>
